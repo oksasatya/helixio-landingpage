@@ -1,0 +1,124 @@
+---
+import { getLocale, t } from '../i18n/utils';
+import PricingWidget from './PricingWidget.tsx';
+
+const locale = getLocale(Astro.url.pathname);
+const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
+
+const labels = {
+  monthly: t('pricing.monthly', locale),
+  sixMonths: t('pricing.sixMonths', locale),
+  yearly: t('pricing.yearly', locale),
+  save: t('pricing.save', locale),
+  perMonth: t('pricing.perMonth', locale),
+  forever: t('pricing.forever', locale),
+  popular: t('pricing.popular', locale),
+};
+
+const plans = [
+  {
+    name: t('pricing.plans.free.name', locale),
+    description: t('pricing.plans.free.desc', locale),
+    priceMonthly: 0,
+    priceSixMonths: 0,
+    priceYearly: 0,
+    isFree: true,
+    isPopular: false,
+    ctaLabel: t('pricing.getStarted', locale),
+    ctaHref: `${appUrl}/register`,
+    features: [
+      { label: t('pricing.features.notes', locale), included: true },
+      { label: t('pricing.features.kanban', locale), included: false },
+      { label: t('pricing.features.calendarSync', locale), included: false },
+      { label: t('pricing.features.team', locale), included: false },
+      { label: t('pricing.features.ai', locale), included: false },
+      { label: `3 ${t('pricing.features.boards', locale)}`, included: true },
+      { label: `50 ${t('pricing.features.tasksPerBoard', locale)}`, included: true },
+      { label: t('pricing.features.noteFileSize', locale), included: true, value: '5 MB' },
+    ],
+  },
+  {
+    name: t('pricing.plans.basic.name', locale),
+    description: t('pricing.plans.basic.desc', locale),
+    priceMonthly: 50000,
+    priceSixMonths: 270000,
+    priceYearly: 480000,
+    isFree: false,
+    isPopular: false,
+    ctaLabel: t('pricing.upgrade', locale),
+    ctaHref: `${appUrl}/register`,
+    features: [
+      { label: t('pricing.features.notes', locale), included: true },
+      { label: t('pricing.features.kanban', locale), included: true },
+      { label: t('pricing.features.calendarSync', locale), included: false },
+      { label: t('pricing.features.team', locale), included: false },
+      { label: t('pricing.features.ai', locale), included: false },
+      { label: `10 ${t('pricing.features.boards', locale)}`, included: true },
+      { label: `200 ${t('pricing.features.tasksPerBoard', locale)}`, included: true },
+      { label: t('pricing.features.noteFileSize', locale), included: true, value: '10 MB' },
+    ],
+  },
+  {
+    name: t('pricing.plans.standard.name', locale),
+    description: t('pricing.plans.standard.desc', locale),
+    priceMonthly: 349000,
+    priceSixMonths: 1899000,
+    priceYearly: 3399000,
+    isFree: false,
+    isPopular: true,
+    ctaLabel: t('pricing.upgrade', locale),
+    ctaHref: `${appUrl}/register`,
+    features: [
+      { label: t('pricing.features.notes', locale), included: true },
+      { label: t('pricing.features.kanban', locale), included: true },
+      { label: t('pricing.features.calendarSync', locale), included: true },
+      { label: t('pricing.features.team', locale), included: true },
+      { label: t('pricing.features.ai', locale), included: false },
+      { label: `50 ${t('pricing.features.boards', locale)}`, included: true },
+      { label: `1.000 ${t('pricing.features.tasksPerBoard', locale)}`, included: true },
+      { label: t('pricing.features.noteFileSize', locale), included: true, value: '25 MB' },
+    ],
+  },
+  {
+    name: t('pricing.plans.pro.name', locale),
+    description: t('pricing.plans.pro.desc', locale),
+    priceMonthly: 1200000,
+    priceSixMonths: 6499000,
+    priceYearly: 11999000,
+    isFree: false,
+    isPopular: false,
+    ctaLabel: t('pricing.upgrade', locale),
+    ctaHref: `${appUrl}/register`,
+    features: [
+      { label: `${t('pricing.features.notes', locale)} (${t('pricing.features.unlimited', locale)})`, included: true },
+      { label: `${t('pricing.features.kanban', locale)} (${t('pricing.features.unlimited', locale)})`, included: true },
+      { label: t('pricing.features.calendarSync', locale), included: true },
+      { label: t('pricing.features.team', locale), included: true },
+      { label: t('pricing.features.ai', locale), included: true, value: '4.000 credits/bulan' },
+      { label: t('pricing.features.apiAccess', locale), included: true },
+      { label: `${t('pricing.features.unlimited', locale)} ${t('pricing.features.boards', locale)}`, included: true },
+      { label: t('pricing.features.noteFileSize', locale), included: true, value: '100 MB' },
+    ],
+  },
+];
+---
+
+<section id="pricing" class="relative overflow-hidden gradient-border-top">
+  <!-- Diagonal line pattern -->
+  <div class="absolute inset-0 pointer-events-none pattern-diagonal" aria-hidden="true"></div>
+  <!-- Radial glow behind center (popular card area) -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[500px] h-[500px] rounded-full bg-radial from-[#FD8406]/[0.06] to-transparent blur-2xl pointer-events-none animate-pulse-glow" aria-hidden="true"></div>
+
+  <div class="section-container relative z-10">
+    <h2 class="section-title text-[var(--color-foreground)] reveal">
+      {t('pricing.title', locale)}
+    </h2>
+    <p class="section-subtitle reveal">
+      {t('pricing.subtitle', locale)}
+    </p>
+
+    <div class="reveal">
+      <PricingWidget plans={plans} labels={labels} client:visible />
+    </div>
+  </div>
+</section>

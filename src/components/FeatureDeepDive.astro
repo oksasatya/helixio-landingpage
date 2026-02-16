@@ -1,0 +1,71 @@
+---
+import { getLocale, t } from '../i18n/utils';
+import FeatureDeepDiveWidget from './FeatureDeepDiveWidget';
+
+const locale = getLocale(Astro.url.pathname);
+
+const features = [
+  {
+    icon: 'fas fa-sticky-note',
+    name: t('features.notes.name', locale),
+    highlights: [
+      t('features.notes.highlight1', locale),
+      t('features.notes.highlight2', locale),
+      t('features.notes.highlight3', locale),
+      t('features.notes.highlight4', locale),
+    ],
+    limits: [
+      { plan: 'Free', value: '5 MB' },
+      { plan: 'Basic', value: '10 MB' },
+      { plan: 'Standard', value: '25 MB' },
+      { plan: 'Pro', value: '100 MB' },
+    ],
+    accent: '#FD8406',
+  },
+  {
+    icon: 'fas fa-columns',
+    name: t('features.kanban.name', locale),
+    highlights: [
+      t('features.kanban.highlight1', locale),
+      t('features.kanban.highlight2', locale),
+      t('features.kanban.highlight3', locale),
+      t('features.kanban.highlight4', locale),
+    ],
+    limits: [
+      { plan: 'Free', value: '3 boards, 50 tasks' },
+      { plan: 'Basic', value: '10 boards, 200 tasks' },
+      { plan: 'Standard', value: '50 boards, 1.000 tasks' },
+      { plan: 'Pro', value: 'Unlimited' },
+    ],
+    accent: '#FDDB12',
+  },
+  {
+    icon: 'fas fa-calendar-alt',
+    name: t('features.calendar.name', locale),
+    highlights: [
+      t('features.calendar.highlight1', locale),
+      t('features.calendar.highlight2', locale),
+      t('features.calendar.highlight3', locale),
+      t('features.calendar.highlight4', locale),
+    ],
+    badge: t('features.calendar.badge', locale),
+    accent: '#10B981',
+  },
+  {
+    icon: 'fas fa-robot',
+    name: t('features.ai.name', locale),
+    highlights: [
+      t('features.ai.highlight1', locale),
+      t('features.ai.highlight2', locale),
+      t('features.ai.highlight3', locale),
+      t('features.ai.highlight4', locale),
+    ],
+    badge: t('features.ai.badge', locale),
+    accent: '#8B5CF6',
+  },
+];
+---
+
+<section id="feature-deep-dive" class="relative overflow-hidden">
+  <FeatureDeepDiveWidget client:visible features={features} />
+</section>

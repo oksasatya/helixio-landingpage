@@ -1,0 +1,444 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/800.css";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@theme {
+  --color-primary: #FD8406;
+  --color-secondary: #FDDB12;
+  --color-background: #0A0A0F;
+  --color-foreground: #F5F5F7;
+  --color-muted: #9CA3AF;
+  --color-card: #111118;
+  --color-border: #1F1F2E;
+  --color-destructive: #EF4444;
+  --color-success: #10B981;
+
+  --font-heading: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Gradient button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(253, 132, 6, 0.3);
+}
+
+/* Outline button */
+.btn-secondary {
+  color: var(--color-foreground);
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Section container */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 16px;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 80px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding: 100px 64px;
+  }
+}
+
+/* Glass card */
+.glass-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@media (min-width: 768px) {
+  .glass-card {
+    padding: 32px;
+  }
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow decorative */
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253, 132, 6, 0.12), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Section title */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--color-foreground);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+/* ========================================
+   Dynamic Island Navbar
+   ======================================== */
+.dynamic-island {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  transition: border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.3s ease;
+}
+
+.dynamic-island--collapsed {
+  border-radius: 9999px;
+  width: calc(100% - 24px);
+  max-width: 800px;
+  max-height: 56px;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .dynamic-island--collapsed {
+    width: auto;
+    padding: 0 24px;
+  }
+}
+
+.dynamic-island--expanded {
+  border-radius: 24px;
+  width: calc(100% - 24px);
+  max-width: 400px;
+  max-height: 420px;
+  padding: 20px;
+}
+
+.dynamic-island-content {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+}
+
+.dynamic-island--expanded .dynamic-island-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar spacer */
+.navbar-spacer {
+  height: 80px;
+}
+
+/* Flag toggle */
+.flag-toggle {
+  display: inline-flex;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px;
+  gap: 2px;
+}
+
+.flag-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  white-space: nowrap;
+}
+
+.flag-toggle-btn--active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.flag-toggle-btn:hover:not(.flag-toggle-btn--active) {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   Background Patterns
+   ======================================== */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.015) 10px,
+    rgba(255, 255, 255, 0.015) 11px
+  );
+}
+
+.pattern-topo {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(253, 132, 6, 0.03) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 255, 255, 0.015) 40px,
+      rgba(255, 255, 255, 0.015) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.01) 80px,
+      rgba(255, 255, 255, 0.01) 81px
+    );
+}
+
+/* Fade mask for patterns — fades edges to transparent */
+.pattern-fade {
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+/* Gradient top border for sections */
+.gradient-border-top {
+  position: relative;
+}
+
+.gradient-border-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-secondary), transparent);
+  opacity: 0.4;
+}
+
+/* ========================================
+   Decoration Animations
+   ======================================== */
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10px, -15px) scale(1.05); }
+  66% { transform: translate(-8px, 10px) scale(0.95); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 0.6; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.1); }
+}
+
+.animate-orb-float {
+  animation: orb-float 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-sparkle {
+  animation: sparkle 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* ========================================
+   Pricing Card Premium Styles
+   ======================================== */
+.pricing-card {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pricing-card--popular {
+  box-shadow:
+    0 0 40px rgba(253, 132, 6, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   Feature Deep Dive — Pinned Panels
+   ======================================== */
+.deep-dive-panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.deep-dive-panel.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.deep-dive-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(253, 132, 6, 0.3);
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.deep-dive-dot.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 12px rgba(253, 132, 6, 0.4);
+  transform: scale(1.3);
+}
+
+.deep-dive-progress {
+  width: 2px;
+  background: rgba(253, 132, 6, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.deep-dive-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

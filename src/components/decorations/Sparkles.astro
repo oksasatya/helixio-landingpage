@@ -1,0 +1,41 @@
+---
+interface Props {
+  count?: number;
+  class?: string;
+}
+
+const { count = 5, class: className = '' } = Astro.props;
+
+const sparklePositions = [
+  { x: 10, y: 20, size: 12, delay: 0 },
+  { x: 85, y: 15, size: 8, delay: 0.5 },
+  { x: 90, y: 75, size: 14, delay: 1 },
+  { x: 15, y: 80, size: 10, delay: 1.5 },
+  { x: 50, y: 10, size: 6, delay: 2 },
+  { x: 70, y: 90, size: 8, delay: 0.8 },
+  { x: 30, y: 60, size: 10, delay: 1.2 },
+].slice(0, count);
+---
+
+<div class={`absolute inset-0 pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+  {sparklePositions.map((s) => (
+    <svg
+      class="absolute animate-sparkle"
+      style={`left: ${s.x}%; top: ${s.y}%; width: ${s.size}px; height: ${s.size}px; animation-delay: ${s.delay}s;`}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"
+        fill="url(#sparkle-grad)"
+      />
+      <defs>
+        <linearGradient id="sparkle-grad" x1="0" y1="0" x2="24" y2="24">
+          <stop stop-color="#FD8406" />
+          <stop offset="1" stop-color="#FDDB12" />
+        </linearGradient>
+      </defs>
+    </svg>
+  ))}
+</div>

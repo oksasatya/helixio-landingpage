@@ -1,0 +1,175 @@
+---
+import { getLocale, t, getAlternatePath, getLocalizedPath } from '../i18n/utils';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  schema?: Record<string, unknown>;
+}
+
+const { title, description, canonicalPath, schema } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const htmlLang = locale === 'id' ? 'id' : 'en';
+const currentPath = Astro.url.pathname;
+const alternatePath = getAlternatePath(currentPath);
+const canonical = canonicalPath || currentPath;
+const siteUrl = 'https://helixio.app';
+
+// BreadcrumbList schema
+const pathSegments = currentPath.replace(/^\/en/, '').replace(/^\//, '').replace(/\/$/, '').split('/').filter(Boolean);
+const breadcrumbItems = [
+  { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}${locale === 'en' ? '/en' : ''}/` }
+];
+pathSegments.forEach((seg, i) => {
+  const path = `/${pathSegments.slice(0, i + 1).join('/')}`;
+  const localizedPath = locale === 'en' ? `/en${path}` : path;
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    "position": i + 2,
+    "name": seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, ' '),
+    "item": `${siteUrl}${localizedPath}`
+  });
+});
+
+const breadcrumbSchema = pathSegments.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems
+} : null;
+---
+
+<!doctype html>
+<html lang={htmlLang} class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Google Tag Manager -->
+    {import.meta.env.PUBLIC_GTAG_ID && (
+      <script is:inline define:vars={{ gtagId: import.meta.env.PUBLIC_GTAG_ID }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtagId);
+      </script>
+    )}
+
+    <!-- Google Analytics 4 -->
+    {import.meta.env.PUBLIC_MEASUR_ID && (
+      <Fragment>
+        <script is:inline define:vars={{ measureId: import.meta.env.PUBLIC_MEASUR_ID }}>
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + measureId;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', measureId);
+        </script>
+      </Fragment>
+    )}
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`${siteUrl}${canonical}`} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="id" href={`${siteUrl}${getLocalizedPath(currentPath, 'id')}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${getLocalizedPath(currentPath, 'en')}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${getLocalizedPath(currentPath, 'id')}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={`${siteUrl}${canonical}`} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:site_name" content="Helixio" />
+    <meta property="og:locale" content={locale === 'id' ? 'id_ID' : 'en_US'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+
+    <!-- Schema.org -->
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+  </head>
+  <body class="min-h-screen overflow-x-hidden">
+    <!-- GTM noscript fallback -->
+    {import.meta.env.PUBLIC_GTAG_ID && (
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${import.meta.env.PUBLIC_GTAG_ID}`}
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    )}
+    <slot />
+
+    <!-- Lenis smooth scroll + GSAP ScrollTrigger sync -->
+    <script>
+      import Lenis from 'lenis';
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const lenis = new Lenis({
+        lerp: 0.1,
+        duration: 1.2,
+        smoothWheel: true,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+
+      // Sync Lenis with GSAP ScrollTrigger
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // Expose lenis globally for other components
+      (window as any).__lenis = lenis;
+    </script>
+
+    <!-- Scroll reveal observer -->
+    <script is:inline>
+      (function() {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        function observeElements() {
+          document.querySelectorAll('.reveal').forEach(function(el) {
+            observer.observe(el);
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', observeElements);
+        } else {
+          observeElements();
+        }
+      })();
+    </script>
+  </body>
+</html>

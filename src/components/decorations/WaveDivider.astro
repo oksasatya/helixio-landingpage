@@ -1,0 +1,26 @@
+---
+interface Props {
+  position?: 'top' | 'bottom';
+  color?: string;
+  class?: string;
+}
+
+const { position = 'top', color = 'var(--color-card)', class: className = '' } = Astro.props;
+
+const posClass = position === 'top' ? 'top-0' : 'bottom-0 rotate-180';
+---
+
+<div class={`absolute left-0 right-0 ${posClass} pointer-events-none overflow-hidden ${className}`} aria-hidden="true">
+  <svg class="w-full h-12 md:h-16 lg:h-20" viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
+      fill={color}
+      opacity="0.5"
+    />
+    <path
+      d="M0,50 C360,10 720,70 1080,30 C1260,10 1380,50 1440,45 L1440,80 L0,80 Z"
+      fill={color}
+      opacity="0.3"
+    />
+  </svg>
+</div>

@@ -1,0 +1,12 @@
+---
+interface Props {
+  variant?: 'dots' | 'grid' | 'diagonal' | 'topo';
+  class?: string;
+}
+
+const { variant = 'dots', class: className = '' } = Astro.props;
+
+const patternClass = `pattern-${variant}`;
+---
+
+<div class={`absolute inset-0 pointer-events-none ${patternClass} ${className}`} aria-hidden="true"></div>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import PricingSection from '../../components/PricingSection.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Footer from '../../components/Footer.astro';
+import { t } from '../../i18n/utils';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Helixio",
+  "description": t('meta.pricingDesc', 'en'),
+  "brand": { "@type": "Organization", "name": "Helixio" },
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "IDR" },
+    { "@type": "Offer", "name": "Basic", "price": "50000", "priceCurrency": "IDR" },
+    { "@type": "Offer", "name": "Standard", "price": "349000", "priceCurrency": "IDR" },
+    { "@type": "Offer", "name": "Pro", "price": "1200000", "priceCurrency": "IDR" }
+  ]
+};
+---
+
+<BaseLayout title={t('meta.pricingTitle', 'en')} description={t('meta.pricingDesc', 'en')} schema={schema}>
+  <Navbar />
+  <div class="pt-12"></div>
+  <PricingSection />
+  <ComparisonTable />
+  <FAQ />
+  <CTA />
+  <Footer />
+</BaseLayout>

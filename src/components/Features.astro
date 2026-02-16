@@ -1,0 +1,129 @@
+---
+import { getLocale, t } from '../i18n/utils';
+import FeatureCard from './FeatureCard.astro';
+
+const locale = getLocale(Astro.url.pathname);
+
+const features = [
+  {
+    icon: 'fas fa-sticky-note',
+    titleKey: 'features.notes.name',
+    descKey: 'features.notes.desc',
+    size: 'lg' as const,
+    accent: '#FD8406',
+    highlights: ['features.notes.highlight1', 'features.notes.highlight2', 'features.notes.highlight3', 'features.notes.highlight4'],
+  },
+  {
+    icon: 'fas fa-columns',
+    titleKey: 'features.kanban.name',
+    descKey: 'features.kanban.desc',
+    size: 'lg' as const,
+    accent: '#FDDB12',
+    highlights: ['features.kanban.highlight1', 'features.kanban.highlight2', 'features.kanban.highlight3', 'features.kanban.highlight4'],
+  },
+  {
+    icon: 'fas fa-calendar-alt',
+    titleKey: 'features.calendar.name',
+    descKey: 'features.calendar.desc',
+    size: 'md' as const,
+    accent: '#10B981',
+    highlights: [],
+  },
+  {
+    icon: 'fas fa-robot',
+    titleKey: 'features.ai.name',
+    descKey: 'features.ai.desc',
+    size: 'md' as const,
+    accent: '#8B5CF6',
+    highlights: [],
+  },
+  {
+    icon: 'fas fa-users',
+    titleKey: 'features.team.name',
+    descKey: 'features.team.desc',
+    size: 'md' as const,
+    accent: '#3B82F6',
+    highlights: [],
+  },
+  {
+    icon: 'fas fa-bell',
+    titleKey: 'features.notifications.name',
+    descKey: 'features.notifications.desc',
+    size: 'full' as const,
+    accent: '#F43F5E',
+    highlights: [],
+  },
+];
+
+const topFeatures = features.slice(0, 2);
+const midFeatures = features.slice(2, 5);
+const bottomFeature = features[5];
+---
+
+<section id="features" class="relative overflow-hidden">
+  <!-- Grid line pattern -->
+  <div class="absolute inset-0 pointer-events-none pattern-grid pattern-fade" aria-hidden="true"></div>
+  <!-- Corner geometric accents -->
+  <svg class="absolute top-6 right-6 w-16 h-16 opacity-10 pointer-events-none hidden lg:block" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <line x1="0" y1="0" x2="100" y2="0" stroke="#FD8406" stroke-width="0.5" />
+    <line x1="100" y1="0" x2="100" y2="100" stroke="#FD8406" stroke-width="0.5" />
+    <circle cx="100" cy="0" r="4" fill="#FD8406" opacity="0.3" />
+  </svg>
+  <svg class="absolute bottom-6 left-6 w-16 h-16 opacity-10 pointer-events-none hidden lg:block" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <line x1="0" y1="100" x2="100" y2="100" stroke="#FDDB12" stroke-width="0.5" />
+    <line x1="0" y1="0" x2="0" y2="100" stroke="#FDDB12" stroke-width="0.5" />
+    <circle cx="0" cy="100" r="4" fill="#FDDB12" opacity="0.3" />
+  </svg>
+
+  <div class="section-container relative z-10">
+    <h2 class="section-title text-[var(--color-foreground)] reveal">
+      {t('features.title', locale)}
+    </h2>
+    <p class="section-subtitle reveal">
+      {t('features.subtitle', locale)}
+    </p>
+
+    <!-- Bento Grid -->
+    <div class="space-y-4 md:space-y-5">
+      <!-- Row 1: 2 large feature cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        {topFeatures.map((feature) => (
+          <FeatureCard
+            icon={feature.icon}
+            title={t(feature.titleKey, locale)}
+            description={t(feature.descKey, locale)}
+            size={feature.size}
+            accent={feature.accent}
+            highlights={feature.highlights.map(h => t(h, locale))}
+          />
+        ))}
+      </div>
+
+      <!-- Row 2: 3 medium cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        {midFeatures.map((feature) => (
+          <FeatureCard
+            icon={feature.icon}
+            title={t(feature.titleKey, locale)}
+            description={t(feature.descKey, locale)}
+            size={feature.size}
+            accent={feature.accent}
+            highlights={feature.highlights.map(h => t(h, locale))}
+          />
+        ))}
+      </div>
+
+      <!-- Row 3: 1 full-width accent card -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        <FeatureCard
+          icon={bottomFeature.icon}
+          title={t(bottomFeature.titleKey, locale)}
+          description={t(bottomFeature.descKey, locale)}
+          size={bottomFeature.size}
+          accent={bottomFeature.accent}
+          highlights={bottomFeature.highlights.map(h => t(h, locale))}
+        />
+      </div>
+    </div>
+  </div>
+</section>

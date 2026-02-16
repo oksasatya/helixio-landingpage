@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/Hero.astro';
+import Features from '../../components/Features.astro';
+import FeatureDeepDive from '../../components/FeatureDeepDive.astro';
+import PricingSection from '../../components/PricingSection.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Footer from '../../components/Footer.astro';
+import { t, tArray } from '../../i18n/utils';
+
+const faqItems = tArray('faq.items', 'en');
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Helixio",
+      "url": "https://helixio.app",
+      "logo": "https://cdn.helixio.id/assets/img/public/logo.png",
+      "description": t('meta.homeDesc', 'en'),
+      "sameAs": [
+        import.meta.env.PUBLIC_INSTAGRAM_URL
+      ].filter(Boolean),
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": import.meta.env.PUBLIC_NUMBER_WHATSAPP,
+        "contactType": "customer service"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout title={t('meta.homeTitle', 'en')} description={t('meta.homeDesc', 'en')} schema={schema}>
+  <Navbar />
+  <Hero />
+  <Features />
+  <FeatureDeepDive />
+  <PricingSection />
+  <ComparisonTable />
+  <FAQ />
+  <CTA />
+  <Footer />
+</BaseLayout>

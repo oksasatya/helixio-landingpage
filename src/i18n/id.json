@@ -1,0 +1,276 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "features": "Fitur",
+    "pricing": "Harga",
+    "contact": "Kontak",
+    "blog": "Blog",
+    "getStarted": "Mulai Gratis",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "Atur Semua Pekerjaan Kamu dalam Satu Platform",
+    "subtitle": "Notes, Kanban, Kalender, dan AI — semua yang kamu butuhkan untuk produktivitas maksimal.",
+    "cta": "Daftar Gratis",
+    "ctaSecondary": "Lihat Demo",
+    "trust": {
+      "noCreditCard": "Tanpa Kartu Kredit",
+      "freeForever": "Gratis Selamanya",
+      "quickSetup": "Setup dalam 2 Menit"
+    }
+  },
+  "features": {
+    "title": "Semua yang Kamu Butuhkan untuk Produktivitas",
+    "subtitle": "Satu platform untuk catatan, tugas, jadwal, dan kolaborasi tim.",
+    "notes": {
+      "name": "Smart Notes",
+      "desc": "Tulis, organisir, dan temukan catatan dengan editor rich-text dan knowledge graph.",
+      "highlight1": "Rich text editor",
+      "highlight2": "Folder & tree structure",
+      "highlight3": "Knowledge graph view",
+      "highlight4": "Upload attachment"
+    },
+    "kanban": {
+      "name": "Kanban Board",
+      "desc": "Kelola tugas dengan drag-and-drop, label, prioritas, dan checklist.",
+      "highlight1": "Drag-and-drop columns",
+      "highlight2": "Recurring tasks",
+      "highlight3": "Label & prioritas",
+      "highlight4": "Checklist per task"
+    },
+    "calendar": {
+      "name": "Calendar Sync",
+      "desc": "Jadwalkan dan sinkronkan event dengan Google Calendar secara otomatis.",
+      "highlight1": "Google Calendar sync",
+      "highlight2": "Attendees & RSVP",
+      "highlight3": "ICS import",
+      "highlight4": "Recurring events",
+      "badge": "Google Calendar Integration"
+    },
+    "ai": {
+      "name": "AI Assistant",
+      "desc": "Ringkas catatan, breakdown task, dan chat dengan konteks workspace.",
+      "highlight1": "Ringkasan catatan",
+      "highlight2": "Breakdown tugas otomatis",
+      "highlight3": "Chat kontekstual",
+      "highlight4": "4.000 credits/bulan",
+      "badge": "Pro Only"
+    },
+    "team": {
+      "name": "Team Workspace",
+      "desc": "Kolaborasi real-time dengan role-based access dan notifikasi."
+    },
+    "notifications": {
+      "name": "Smart Notifications",
+      "desc": "Reminder otomatis untuk deadline, tugas, dan event penting."
+    }
+  },
+  "pricing": {
+    "title": "Pilih Plan yang Tepat untuk Kamu",
+    "subtitle": "Mulai gratis, upgrade kapan saja sesuai kebutuhan.",
+    "monthly": "Bulanan",
+    "sixMonths": "6 Bulan",
+    "yearly": "Tahunan",
+    "save": "Hemat",
+    "popular": "Paling Populer",
+    "free": "Gratis",
+    "perMonth": "/bulan",
+    "forever": "selamanya",
+    "getStarted": "Mulai Gratis",
+    "upgrade": "Upgrade Sekarang",
+    "currentPlan": "Plan Saat Ini",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "desc": "Untuk memulai dan mencoba fitur dasar.",
+        "price": 0
+      },
+      "basic": {
+        "name": "Basic",
+        "desc": "Untuk individu yang butuh notes & kanban.",
+        "priceMonthly": 50000,
+        "priceSixMonths": 270000,
+        "priceYearly": 480000
+      },
+      "standard": {
+        "name": "Standard",
+        "desc": "Untuk tim yang ingin kolaborasi lebih baik.",
+        "priceMonthly": 349000,
+        "priceSixMonths": 1899000,
+        "priceYearly": 3399000
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "Untuk power user dan tim besar.",
+        "priceMonthly": 1200000,
+        "priceSixMonths": 6499000,
+        "priceYearly": 11999000
+      }
+    },
+    "features": {
+      "notes": "Smart Notes",
+      "kanban": "Kanban Board",
+      "calendarSync": "Google Calendar Sync",
+      "team": "Team Workspace",
+      "ai": "AI Assistant",
+      "apiAccess": "API Access",
+      "unlimited": "Unlimited",
+      "boards": "boards",
+      "tasksPerBoard": "tasks/board",
+      "labels": "labels",
+      "attachmentsPerTask": "attachments/task",
+      "noteFileSize": "Note file size",
+      "taskFileSize": "Task file size"
+    },
+    "comparisonTitle": "Perbandingan Lengkap Semua Plan"
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Temukan jawaban dari pertanyaan yang paling sering ditanyakan.",
+    "items": [
+      {
+        "q": "Apakah ada free plan?",
+        "a": "Ya! Helixio menyediakan free plan yang gratis selamanya. Kamu bisa menggunakan fitur dasar notes tanpa perlu kartu kredit."
+      },
+      {
+        "q": "Metode pembayaran apa saja yang tersedia?",
+        "a": "Kami mendukung berbagai metode pembayaran melalui Midtrans, termasuk GoPay, OVO, DANA, ShopeePay, Virtual Account (BCA, Mandiri, BNI, BRI), Kartu Kredit/Debit, dan pembayaran di Indomaret/Alfamart."
+      },
+      {
+        "q": "Bisa upgrade atau downgrade kapan saja?",
+        "a": "Ya! Kamu bisa upgrade plan kapan saja dan perubahan berlaku langsung. Untuk downgrade, perubahan berlaku di awal periode billing berikutnya."
+      },
+      {
+        "q": "Apakah data saya aman?",
+        "a": "Tentu! Kami menggunakan enkripsi end-to-end dan secure cookies untuk menjaga keamanan data kamu. Server kami juga dilindungi dengan standar keamanan industri."
+      },
+      {
+        "q": "Bisa dipakai di mobile?",
+        "a": "Ya! Helixio adalah responsive web app yang bisa diakses dari browser di perangkat apa pun — desktop, tablet, maupun mobile."
+      },
+      {
+        "q": "Apakah ada trial period?",
+        "a": "Free plan sudah mencakup fitur dasar yang bisa kamu gunakan selamanya. Tidak perlu trial — langsung pakai!"
+      },
+      {
+        "q": "Bagaimana AI credits bekerja?",
+        "a": "Setiap bulan, akun Pro mendapat 4.000 credits yang reset otomatis. Setiap operasi AI menggunakan 1-5 credits tergantung kompleksitas. Kamu juga bisa top-up credits kapan saja."
+      },
+      {
+        "q": "Bisa cancel subscription?",
+        "a": "Ya, kamu bisa cancel subscription kapan saja. Akses premium tetap berlaku sampai akhir periode billing yang sudah dibayar."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Siap Meningkatkan Produktivitas Tim Kamu?",
+    "subtitle": "Mulai gratis hari ini. Upgrade kapan saja.",
+    "button": "Daftar Gratis Sekarang"
+  },
+  "footer": {
+    "tagline": "Platform produktivitas all-in-one untuk individu dan tim.",
+    "product": "Produk",
+    "legal": "Legal",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Syarat & Ketentuan",
+    "followUs": "Ikuti Kami",
+    "rights": "Hak cipta dilindungi."
+  },
+  "meta": {
+    "homeTitle": "Helixio — Platform Produktivitas All-in-One",
+    "homeDesc": "Atur semua pekerjaan kamu dalam satu platform. Notes, Kanban, Calendar, dan AI untuk produktivitas maksimal individu dan tim.",
+    "pricingTitle": "Harga — Helixio | Platform Produktivitas All-in-One",
+    "pricingDesc": "Pilih plan yang tepat untuk kebutuhan kamu. Mulai gratis, upgrade kapan saja. Notes, Kanban, Calendar, Team, dan AI Assistant.",
+    "featuresTitle": "Fitur — Helixio | Platform Produktivitas All-in-One",
+    "featuresDesc": "Jelajahi semua fitur Helixio: Smart Notes, Kanban Board, Calendar Sync, AI Assistant, dan Team Workspace.",
+    "notesTitle": "Smart Notes — Helixio | Platform Produktivitas All-in-One",
+    "notesDesc": "Tulis, organisir, dan temukan catatan dengan editor rich-text, folder tree, knowledge graph, dan attachment upload.",
+    "kanbanTitle": "Kanban Board — Helixio | Platform Produktivitas All-in-One",
+    "kanbanDesc": "Kelola tugas dengan drag-and-drop kanban board, label, prioritas, checklist, dan recurring tasks.",
+    "calendarTitle": "Calendar Sync — Helixio | Platform Produktivitas All-in-One",
+    "calendarDesc": "Jadwalkan dan sinkronkan event dengan Google Calendar. Attendees, RSVP, ICS import, dan recurring events.",
+    "aiTitle": "AI Assistant — Helixio | Platform Produktivitas All-in-One",
+    "aiDesc": "Ringkas catatan, breakdown tugas, dan chat dengan konteks workspace menggunakan AI assistant.",
+    "privacyTitle": "Kebijakan Privasi — Helixio",
+    "privacyDesc": "Kebijakan privasi Helixio. Pelajari bagaimana kami melindungi data dan privasi kamu.",
+    "termsTitle": "Syarat & Ketentuan — Helixio",
+    "termsDesc": "Syarat dan ketentuan penggunaan platform Helixio.",
+    "contactTitle": "Kontak — Helixio | Platform Produktivitas All-in-One",
+    "contactDesc": "Hubungi tim Helixio melalui WhatsApp, Instagram, atau kunjungi kantor kami. Kami siap membantu kamu."
+  },
+  "privacy": {
+    "title": "Kebijakan Privasi",
+    "lastUpdated": "Terakhir diperbarui: 16 Februari 2026",
+    "intro": "Helixio (\"kami\") berkomitmen untuk melindungi privasi pengguna. Kebijakan privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.",
+    "sections": [
+      {
+        "title": "1. Informasi yang Kami Kumpulkan",
+        "content": "Kami mengumpulkan informasi yang Anda berikan saat mendaftar (nama, email, kata sandi), data penggunaan layanan, dan informasi pembayaran melalui Midtrans. Kami tidak menyimpan data kartu kredit secara langsung."
+      },
+      {
+        "title": "2. Penggunaan Informasi",
+        "content": "Informasi Anda digunakan untuk menyediakan dan meningkatkan layanan, memproses pembayaran, mengirim notifikasi terkait akun, dan berkomunikasi tentang pembaruan produk."
+      },
+      {
+        "title": "3. Keamanan Data",
+        "content": "Kami menggunakan enkripsi end-to-end, secure cookies, dan standar keamanan industri untuk melindungi data Anda. Akses ke data dibatasi hanya untuk personel yang membutuhkan."
+      },
+      {
+        "title": "4. Berbagi Data",
+        "content": "Kami tidak menjual data pribadi Anda. Data hanya dibagikan dengan penyedia layanan pihak ketiga yang diperlukan untuk operasi (seperti Midtrans untuk pembayaran) dan terikat perjanjian kerahasiaan."
+      },
+      {
+        "title": "5. Hak Pengguna",
+        "content": "Anda berhak mengakses, memperbarui, atau menghapus data pribadi Anda kapan saja melalui pengaturan akun atau dengan menghubungi tim support kami."
+      },
+      {
+        "title": "6. Hubungi Kami",
+        "content": "Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan hubungi kami di support@helixio.app."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Syarat & Ketentuan",
+    "lastUpdated": "Terakhir diperbarui: 16 Februari 2026",
+    "intro": "Dengan menggunakan layanan Helixio, Anda menyetujui syarat dan ketentuan berikut. Harap baca dengan seksama sebelum menggunakan platform kami.",
+    "sections": [
+      {
+        "title": "1. Penggunaan Layanan",
+        "content": "Helixio menyediakan platform produktivitas termasuk notes, kanban board, calendar, dan AI assistant. Anda bertanggung jawab untuk menjaga kerahasiaan akun dan kata sandi Anda."
+      },
+      {
+        "title": "2. Akun dan Registrasi",
+        "content": "Anda harus memberikan informasi yang akurat saat mendaftar. Satu orang hanya diperbolehkan memiliki satu akun. Kami berhak menangguhkan akun yang melanggar ketentuan."
+      },
+      {
+        "title": "3. Langganan dan Pembayaran",
+        "content": "Pembayaran diproses melalui Midtrans. Langganan berlaku sesuai periode yang dipilih. Upgrade berlaku langsung, downgrade berlaku di periode berikutnya. Pembatalan bisa dilakukan kapan saja."
+      },
+      {
+        "title": "4. Konten Pengguna",
+        "content": "Anda mempertahankan kepemilikan atas semua konten yang Anda buat di Helixio. Kami tidak mengklaim kepemilikan atas catatan, tugas, atau data Anda."
+      },
+      {
+        "title": "5. Batasan Penggunaan",
+        "content": "Anda tidak diperbolehkan menggunakan layanan untuk aktivitas ilegal, menyebarkan malware, atau mengganggu layanan. Pelanggaran dapat mengakibatkan penangguhan akun."
+      },
+      {
+        "title": "6. Perubahan Ketentuan",
+        "content": "Kami dapat memperbarui syarat dan ketentuan ini dari waktu ke waktu. Perubahan signifikan akan diberitahukan melalui email atau notifikasi dalam aplikasi."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "subtitle": "Punya pertanyaan atau butuh bantuan? Jangan ragu untuk menghubungi kami melalui channel berikut.",
+    "whatsapp": "WhatsApp",
+    "whatsappDesc": "Chat langsung dengan tim kami",
+    "whatsappCta": "Chat via WhatsApp",
+    "instagram": "Instagram",
+    "instagramDesc": "Ikuti update terbaru kami",
+    "instagramCta": "Kunjungi Instagram",
+    "address": "Alamat Kantor",
+    "addressDesc": "Kunjungi kantor kami",
+    "mapTitle": "Lokasi Kami"
+  }
+}

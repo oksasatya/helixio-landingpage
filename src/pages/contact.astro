@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import { t } from '../i18n/utils';
+
+const whatsappNumber = import.meta.env.PUBLIC_NUMBER_WHATSAPP;
+const whatsappUrl = whatsappNumber ? `https://wa.me/${whatsappNumber.replace(/^0/, '62')}` : '#';
+const instagramUrl = import.meta.env.PUBLIC_INSTAGRAM_URL;
+const address = import.meta.env.PUBLIC_ADDRESS;
+const mapsEmbed = import.meta.env.PUBLIC_MAPS_EMBED;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Helixio",
+  "url": "https://helixio.app/contact",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Helixio",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": address
+    },
+    "telephone": whatsappNumber,
+    "url": "https://helixio.app"
+  }
+};
+---
+
+<BaseLayout title={t('meta.contactTitle', 'id')} description={t('meta.contactDesc', 'id')} schema={schema}>
+  <Navbar />
+
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none pattern-grid pattern-fade" aria-hidden="true"></div>
+
+    <div class="section-container relative z-10">
+      <h1 class="section-title text-[var(--color-foreground)] reveal">
+        {t('contact.title', 'id')}
+      </h1>
+      <p class="section-subtitle reveal">
+        {t('contact.subtitle', 'id')}
+      </p>
+
+      <!-- Contact Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-4xl mx-auto mb-12 md:mb-16">
+        <!-- WhatsApp -->
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
+          class="group glass-card p-6 text-center hover:border-[#25D366]/30 transition-all duration-300 reveal">
+          <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[#25D366]/10 group-hover:bg-[#25D366]/20 transition-colors">
+            <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-1">{t('contact.whatsapp', 'id')}</h3>
+          <p class="text-sm text-[var(--color-muted)] mb-3">{t('contact.whatsappDesc', 'id')}</p>
+          <p class="text-sm font-medium text-[var(--color-foreground)]">{whatsappNumber}</p>
+          <span class="inline-block mt-3 text-xs font-semibold text-[#25D366] group-hover:underline">
+            {t('contact.whatsappCta', 'id')} <i class="fas fa-arrow-right text-[10px] ml-1"></i>
+          </span>
+        </a>
+
+        <!-- Instagram -->
+        <a href={instagramUrl} target="_blank" rel="noopener noreferrer"
+          class="group glass-card p-6 text-center hover:border-[#E4405F]/30 transition-all duration-300 reveal" style="transition-delay: 0.1s">
+          <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[#E4405F]/10 group-hover:bg-[#E4405F]/20 transition-colors">
+            <i class="fab fa-instagram text-2xl text-[#E4405F]"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-1">{t('contact.instagram', 'id')}</h3>
+          <p class="text-sm text-[var(--color-muted)] mb-3">{t('contact.instagramDesc', 'id')}</p>
+          <p class="text-sm font-medium text-[var(--color-foreground)]">@rahanmancar</p>
+          <span class="inline-block mt-3 text-xs font-semibold text-[#E4405F] group-hover:underline">
+            {t('contact.instagramCta', 'id')} <i class="fas fa-arrow-right text-[10px] ml-1"></i>
+          </span>
+        </a>
+
+        <!-- Address -->
+        <div class="glass-card p-6 text-center reveal" style="transition-delay: 0.2s">
+          <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[var(--color-primary)]/10">
+            <i class="fas fa-map-marker-alt text-2xl text-[var(--color-primary)]"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-1">{t('contact.address', 'id')}</h3>
+          <p class="text-sm text-[var(--color-muted)] mb-3">{t('contact.addressDesc', 'id')}</p>
+          <p class="text-xs text-[var(--color-foreground)] leading-relaxed">{address}</p>
+        </div>
+      </div>
+
+      <!-- Google Maps Embed -->
+      {mapsEmbed && (
+        <div class="max-w-4xl mx-auto reveal">
+          <h2 class="text-xl md:text-2xl font-bold text-[var(--color-foreground)] mb-4 text-center" style="font-family: var(--font-heading)">
+            {t('contact.mapTitle', 'id')}
+          </h2>
+          <div class="rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-lg">
+            <iframe
+              src={mapsEmbed}
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Helixio Office Location"
+              class="w-full"
+            ></iframe>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <CTA />
+  <Footer />
+</BaseLayout>

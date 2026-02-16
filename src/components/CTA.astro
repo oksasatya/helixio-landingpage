@@ -1,0 +1,39 @@
+---
+import { getLocale, t } from '../i18n/utils';
+import GridPattern from './decorations/GridPattern.astro';
+import GradientOrb from './decorations/GradientOrb.astro';
+import Sparkles from './decorations/Sparkles.astro';
+
+const locale = getLocale(Astro.url.pathname);
+const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
+---
+
+<section class="relative overflow-hidden gradient-border-top">
+  <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-secondary)]/5 -z-10"></div>
+  <!-- Grid pattern overlay -->
+  <GridPattern variant="grid" class="-z-[5] opacity-40 pattern-fade" />
+  <!-- Gradient orbs -->
+  <GradientOrb size="lg" color="mixed" class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" animate={true} />
+  <!-- Sparkles around CTA -->
+  <Sparkles count={5} class="z-0" />
+
+  <div class="section-container text-center relative z-10">
+    <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-foreground)] mb-4 reveal">
+      {t('cta.title', locale)}
+    </h2>
+    <p class="text-lg text-[var(--color-muted)] mb-8 reveal" style="transition-delay: 0.1s">
+      {t('cta.subtitle', locale)}
+    </p>
+    <div class="reveal" style="transition-delay: 0.2s">
+      <a
+        href={`${appUrl}/register`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary text-lg px-10 py-4"
+      >
+        <i class="fas fa-rocket"></i>
+        {t('cta.button', locale)}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,276 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "blog": "Blog",
+    "getStarted": "Get Started Free",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "Manage All Your Work in One Platform",
+    "subtitle": "Notes, Kanban, Calendar, and AI — everything you need for maximum productivity.",
+    "cta": "Sign Up Free",
+    "ctaSecondary": "Watch Demo",
+    "trust": {
+      "noCreditCard": "No Credit Card Required",
+      "freeForever": "Free Forever",
+      "quickSetup": "Setup in 2 Minutes"
+    }
+  },
+  "features": {
+    "title": "Everything You Need for Productivity",
+    "subtitle": "One platform for notes, tasks, scheduling, and team collaboration.",
+    "notes": {
+      "name": "Smart Notes",
+      "desc": "Write, organize, and find notes with rich-text editor and knowledge graph.",
+      "highlight1": "Rich text editor",
+      "highlight2": "Folder & tree structure",
+      "highlight3": "Knowledge graph view",
+      "highlight4": "Attachment upload"
+    },
+    "kanban": {
+      "name": "Kanban Board",
+      "desc": "Manage tasks with drag-and-drop, labels, priorities, and checklists.",
+      "highlight1": "Drag-and-drop columns",
+      "highlight2": "Recurring tasks",
+      "highlight3": "Labels & priorities",
+      "highlight4": "Checklist per task"
+    },
+    "calendar": {
+      "name": "Calendar Sync",
+      "desc": "Schedule and sync events with Google Calendar automatically.",
+      "highlight1": "Google Calendar sync",
+      "highlight2": "Attendees & RSVP",
+      "highlight3": "ICS import",
+      "highlight4": "Recurring events",
+      "badge": "Google Calendar Integration"
+    },
+    "ai": {
+      "name": "AI Assistant",
+      "desc": "Summarize notes, break down tasks, and chat with workspace context.",
+      "highlight1": "Note summarization",
+      "highlight2": "Automatic task breakdown",
+      "highlight3": "Contextual chat",
+      "highlight4": "4,000 credits/month",
+      "badge": "Pro Only"
+    },
+    "team": {
+      "name": "Team Workspace",
+      "desc": "Real-time collaboration with role-based access and notifications."
+    },
+    "notifications": {
+      "name": "Smart Notifications",
+      "desc": "Automatic reminders for deadlines, tasks, and important events."
+    }
+  },
+  "pricing": {
+    "title": "Choose the Right Plan for You",
+    "subtitle": "Start free, upgrade anytime as you need.",
+    "monthly": "Monthly",
+    "sixMonths": "6 Months",
+    "yearly": "Yearly",
+    "save": "Save",
+    "popular": "Most Popular",
+    "free": "Free",
+    "perMonth": "/month",
+    "forever": "forever",
+    "getStarted": "Get Started Free",
+    "upgrade": "Upgrade Now",
+    "currentPlan": "Current Plan",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "desc": "To get started and try basic features.",
+        "price": 0
+      },
+      "basic": {
+        "name": "Basic",
+        "desc": "For individuals who need notes & kanban.",
+        "priceMonthly": 50000,
+        "priceSixMonths": 270000,
+        "priceYearly": 480000
+      },
+      "standard": {
+        "name": "Standard",
+        "desc": "For teams that want better collaboration.",
+        "priceMonthly": 349000,
+        "priceSixMonths": 1899000,
+        "priceYearly": 3399000
+      },
+      "pro": {
+        "name": "Pro",
+        "desc": "For power users and large teams.",
+        "priceMonthly": 1200000,
+        "priceSixMonths": 6499000,
+        "priceYearly": 11999000
+      }
+    },
+    "features": {
+      "notes": "Smart Notes",
+      "kanban": "Kanban Board",
+      "calendarSync": "Google Calendar Sync",
+      "team": "Team Workspace",
+      "ai": "AI Assistant",
+      "apiAccess": "API Access",
+      "unlimited": "Unlimited",
+      "boards": "boards",
+      "tasksPerBoard": "tasks/board",
+      "labels": "labels",
+      "attachmentsPerTask": "attachments/task",
+      "noteFileSize": "Note file size",
+      "taskFileSize": "Task file size"
+    },
+    "comparisonTitle": "Full Plan Comparison"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most commonly asked questions.",
+    "items": [
+      {
+        "q": "Is there a free plan?",
+        "a": "Yes! Helixio offers a free plan that's free forever. You can use basic notes features without a credit card."
+      },
+      {
+        "q": "What payment methods are available?",
+        "a": "We support various payment methods through Midtrans, including GoPay, OVO, DANA, ShopeePay, Virtual Account (BCA, Mandiri, BNI, BRI), Credit/Debit Cards, and payments at Indomaret/Alfamart."
+      },
+      {
+        "q": "Can I upgrade or downgrade anytime?",
+        "a": "Yes! You can upgrade your plan anytime and changes take effect immediately. For downgrades, changes apply at the start of the next billing period."
+      },
+      {
+        "q": "Is my data secure?",
+        "a": "Absolutely! We use end-to-end encryption and secure cookies to protect your data. Our servers are protected with industry-standard security measures."
+      },
+      {
+        "q": "Can I use it on mobile?",
+        "a": "Yes! Helixio is a responsive web app accessible from any device browser — desktop, tablet, or mobile."
+      },
+      {
+        "q": "Is there a trial period?",
+        "a": "The free plan already includes basic features you can use forever. No trial needed — just start using it!"
+      },
+      {
+        "q": "How do AI credits work?",
+        "a": "Every month, Pro accounts receive 4,000 credits that reset automatically. Each AI operation uses 1-5 credits depending on complexity. You can also top-up credits anytime."
+      },
+      {
+        "q": "Can I cancel my subscription?",
+        "a": "Yes, you can cancel your subscription anytime. Premium access remains active until the end of the paid billing period."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Boost Your Team's Productivity?",
+    "subtitle": "Start free today. Upgrade anytime.",
+    "button": "Sign Up Free Now"
+  },
+  "footer": {
+    "tagline": "All-in-one productivity platform for individuals and teams.",
+    "product": "Product",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "meta": {
+    "homeTitle": "Helixio — All-in-One Productivity Platform",
+    "homeDesc": "Manage all your work in one platform. Notes, Kanban, Calendar, and AI for maximum productivity for individuals and teams.",
+    "pricingTitle": "Pricing — Helixio | All-in-One Productivity Platform",
+    "pricingDesc": "Choose the right plan for your needs. Start free, upgrade anytime. Notes, Kanban, Calendar, Team, and AI Assistant.",
+    "featuresTitle": "Features — Helixio | All-in-One Productivity Platform",
+    "featuresDesc": "Explore all Helixio features: Smart Notes, Kanban Board, Calendar Sync, AI Assistant, and Team Workspace.",
+    "notesTitle": "Smart Notes — Helixio | All-in-One Productivity Platform",
+    "notesDesc": "Write, organize, and find notes with rich-text editor, folder tree, knowledge graph, and attachment upload.",
+    "kanbanTitle": "Kanban Board — Helixio | All-in-One Productivity Platform",
+    "kanbanDesc": "Manage tasks with drag-and-drop kanban board, labels, priorities, checklists, and recurring tasks.",
+    "calendarTitle": "Calendar Sync — Helixio | All-in-One Productivity Platform",
+    "calendarDesc": "Schedule and sync events with Google Calendar. Attendees, RSVP, ICS import, and recurring events.",
+    "aiTitle": "AI Assistant — Helixio | All-in-One Productivity Platform",
+    "aiDesc": "Summarize notes, break down tasks, and chat with workspace context using AI assistant.",
+    "privacyTitle": "Privacy Policy — Helixio",
+    "privacyDesc": "Helixio privacy policy. Learn how we protect your data and privacy.",
+    "termsTitle": "Terms of Service — Helixio",
+    "termsDesc": "Terms and conditions for using the Helixio platform.",
+    "contactTitle": "Contact — Helixio | All-in-One Productivity Platform",
+    "contactDesc": "Get in touch with the Helixio team via WhatsApp, Instagram, or visit our office. We're here to help."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: February 16, 2026",
+    "intro": "Helixio (\"we\") is committed to protecting user privacy. This privacy policy explains how we collect, use, and protect your personal information.",
+    "sections": [
+      {
+        "title": "1. Information We Collect",
+        "content": "We collect information you provide when registering (name, email, password), service usage data, and payment information through Midtrans. We do not store credit card data directly."
+      },
+      {
+        "title": "2. Use of Information",
+        "content": "Your information is used to provide and improve services, process payments, send account-related notifications, and communicate about product updates."
+      },
+      {
+        "title": "3. Data Security",
+        "content": "We use end-to-end encryption, secure cookies, and industry security standards to protect your data. Access to data is restricted to personnel who need it."
+      },
+      {
+        "title": "4. Data Sharing",
+        "content": "We do not sell your personal data. Data is only shared with third-party service providers necessary for operations (such as Midtrans for payments) and bound by confidentiality agreements."
+      },
+      {
+        "title": "5. User Rights",
+        "content": "You have the right to access, update, or delete your personal data at any time through account settings or by contacting our support team."
+      },
+      {
+        "title": "6. Contact Us",
+        "content": "If you have questions about this privacy policy, please contact us at support@helixio.app."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: February 16, 2026",
+    "intro": "By using Helixio services, you agree to the following terms and conditions. Please read carefully before using our platform.",
+    "sections": [
+      {
+        "title": "1. Use of Service",
+        "content": "Helixio provides a productivity platform including notes, kanban board, calendar, and AI assistant. You are responsible for maintaining the confidentiality of your account and password."
+      },
+      {
+        "title": "2. Account and Registration",
+        "content": "You must provide accurate information when registering. Each person is only allowed one account. We reserve the right to suspend accounts that violate these terms."
+      },
+      {
+        "title": "3. Subscription and Payment",
+        "content": "Payments are processed through Midtrans. Subscriptions are valid for the selected period. Upgrades take effect immediately, downgrades apply in the next period. Cancellation is available at any time."
+      },
+      {
+        "title": "4. User Content",
+        "content": "You retain ownership of all content you create on Helixio. We do not claim ownership over your notes, tasks, or data."
+      },
+      {
+        "title": "5. Usage Restrictions",
+        "content": "You may not use the service for illegal activities, distribute malware, or disrupt the service. Violations may result in account suspension."
+      },
+      {
+        "title": "6. Changes to Terms",
+        "content": "We may update these terms and conditions from time to time. Significant changes will be notified via email or in-app notification."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or need help? Don't hesitate to reach out through any of the following channels.",
+    "whatsapp": "WhatsApp",
+    "whatsappDesc": "Chat directly with our team",
+    "whatsappCta": "Chat via WhatsApp",
+    "instagram": "Instagram",
+    "instagramDesc": "Follow our latest updates",
+    "instagramCta": "Visit Instagram",
+    "address": "Office Address",
+    "addressDesc": "Visit our office",
+    "mapTitle": "Our Location"
+  }
+}

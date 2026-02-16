@@ -1,0 +1,30 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  color?: 'primary' | 'secondary' | 'mixed';
+  animate?: boolean;
+  class?: string;
+}
+
+const { size = 'md', color = 'primary', animate = true, class: className = '' } = Astro.props;
+
+const sizeMap = {
+  sm: 'w-48 h-48 md:w-64 md:h-64',
+  md: 'w-64 h-64 md:w-96 md:h-96',
+  lg: 'w-96 h-96 md:w-[500px] md:h-[500px]',
+  xl: 'w-[400px] h-[400px] md:w-[700px] md:h-[700px]',
+};
+
+const colorMap = {
+  primary: 'from-[#FD8406]/15 to-transparent',
+  secondary: 'from-[#FDDB12]/10 to-transparent',
+  mixed: 'from-[#FD8406]/10 via-[#FDDB12]/5 to-transparent',
+};
+
+const animClass = animate ? 'animate-orb-float' : '';
+---
+
+<div
+  class={`absolute rounded-full bg-radial ${colorMap[color]} blur-3xl pointer-events-none ${sizeMap[size]} ${animClass} ${className}`}
+  aria-hidden="true"
+></div>

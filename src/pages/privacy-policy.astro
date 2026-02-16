@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { t, tArray } from '../i18n/utils';
+
+const locale = 'id';
+const sections = tArray('privacy.sections', locale);
+---
+
+<BaseLayout title={t('meta.privacyTitle', locale)} description={t('meta.privacyDesc', locale)}>
+  <Navbar />
+
+  <article class="section-container">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-foreground)]">
+        {t('privacy.title', locale)}
+      </h1>
+      <p class="text-sm text-[var(--color-muted)] mb-8">
+        {t('privacy.lastUpdated', locale)}
+      </p>
+      <p class="text-[var(--color-foreground)] mb-8 leading-relaxed">
+        {t('privacy.intro', locale)}
+      </p>
+
+      {sections.map((section) => (
+        <div class="mb-8">
+          <h2 class="text-xl font-semibold mb-3 text-[var(--color-foreground)]">
+            {section.title}
+          </h2>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            {section.content}
+          </p>
+        </div>
+      ))}
+    </div>
+  </article>
+
+  <Footer />
+</BaseLayout>

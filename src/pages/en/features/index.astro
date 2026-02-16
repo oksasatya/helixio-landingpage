@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Features from '../../../components/Features.astro';
+import FeatureDeepDive from '../../../components/FeatureDeepDive.astro';
+import CTA from '../../../components/CTA.astro';
+import Footer from '../../../components/Footer.astro';
+import { t } from '../../../i18n/utils';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Helixio",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web",
+  "description": t('meta.featuresDesc', 'en'),
+  "url": "https://helixio.app/en/features",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "IDR"
+  }
+};
+---
+
+<BaseLayout title={t('meta.featuresTitle', 'en')} description={t('meta.featuresDesc', 'en')} schema={schema}>
+  <Navbar />
+  <div class="pt-12"></div>
+  <Features />
+  <FeatureDeepDive />
+  <CTA />
+  <Footer />
+</BaseLayout>

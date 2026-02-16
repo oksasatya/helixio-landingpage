@@ -1,0 +1,77 @@
+---
+import { getLocale, t } from '../i18n/utils';
+
+const locale = getLocale(Astro.url.pathname);
+
+const rows = [
+  { label: locale === 'id' ? 'Harga/bulan' : 'Price/month', free: 'Rp 0', basic: 'Rp 50.000', standard: 'Rp 349.000', pro: 'Rp 1.200.000' },
+  { label: t('pricing.features.notes', locale), free: true, basic: true, standard: true, pro: 'Unlimited' },
+  { label: t('pricing.features.kanban', locale), free: false, basic: true, standard: true, pro: 'Unlimited' },
+  { label: t('pricing.features.calendarSync', locale), free: false, basic: false, standard: true, pro: true },
+  { label: t('pricing.features.team', locale), free: false, basic: false, standard: true, pro: true },
+  { label: t('pricing.features.ai', locale), free: false, basic: false, standard: false, pro: true },
+  { label: t('pricing.features.apiAccess', locale), free: false, basic: false, standard: false, pro: true },
+  { label: 'Boards', free: '3', basic: '10', standard: '50', pro: 'Unlimited' },
+  { label: 'Tasks/Board', free: '50', basic: '200', standard: '1.000', pro: 'Unlimited' },
+  { label: 'Labels', free: '5', basic: '20', standard: '50', pro: 'Unlimited' },
+  { label: 'Attachments/Task', free: '3', basic: '10', standard: '25', pro: 'Unlimited' },
+  { label: t('pricing.features.noteFileSize', locale), free: '5 MB', basic: '10 MB', standard: '25 MB', pro: '100 MB' },
+  { label: t('pricing.features.taskFileSize', locale), free: '5 MB', basic: '25 MB', standard: '100 MB', pro: '500 MB' },
+];
+
+function renderCell(value: string | boolean) {
+  if (typeof value === 'boolean') {
+    return value
+      ? '<i class="fas fa-check text-[var(--color-success)]"></i>'
+      : '<i class="fas fa-times text-[var(--color-muted)] opacity-40"></i>';
+  }
+  return value;
+}
+---
+
+<section class="relative">
+  <div class="section-container !pt-0">
+    <h2 class="section-title text-[var(--color-foreground)] reveal">
+      {t('pricing.comparisonTitle', locale)}
+    </h2>
+
+    <div class="overflow-x-auto mt-8 md:mt-12 reveal rounded-xl border border-[var(--color-border)]">
+      <div class="min-w-[640px]">
+        <table class="w-full text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-[var(--color-border)] bg-[var(--color-card)]">
+              <th class="text-left py-3 px-3 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">
+                {locale === 'id' ? 'Fitur' : 'Feature'}
+              </th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">Free</th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">Basic</th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">
+                <span class="inline-flex items-center gap-1">
+                  Standard
+                  <i class="fas fa-star text-[var(--color-primary)] text-xs"></i>
+                </span>
+              </th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">Pro</th>
+            </tr>
+          </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-card)] transition-colors">
+              <td class="py-2.5 px-3 md:py-3 md:px-4 font-medium text-[var(--color-foreground)]">{row.label}</td>
+              <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.free)} />
+              <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.basic)} />
+              <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.standard)} />
+              <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.pro)} />
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      </div>
+      <!-- Mobile scroll hint -->
+      <div class="sm:hidden text-center py-2 text-xs text-[var(--color-muted)]">
+        <i class="fas fa-arrows-alt-h mr-1"></i>
+        {locale === 'id' ? 'Geser untuk lihat semua' : 'Scroll to see all'}
+      </div>
+    </div>
+  </div>
+</section>

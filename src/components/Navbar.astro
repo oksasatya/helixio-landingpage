@@ -1,0 +1,87 @@
+---
+import { getLocale, t, getLocalizedPath } from '../i18n/utils';
+import LangSwitch from './LangSwitch.tsx';
+import NavbarMobile from './NavbarMobile.tsx';
+
+const locale = getLocale(Astro.url.pathname);
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: t('nav.home', locale), href: getLocalizedPath('/', locale) },
+  { label: t('nav.features', locale), href: getLocalizedPath('/features', locale) },
+  { label: t('nav.pricing', locale), href: getLocalizedPath('/pricing', locale) },
+  { label: t('nav.contact', locale), href: getLocalizedPath('/contact', locale) },
+];
+
+function isActive(linkHref: string, current: string): boolean {
+  const clean = current.replace(/\/$/, '') || '/';
+  const link = linkHref.replace(/\/$/, '') || '/';
+  if (link === '/' || link === '/en') return clean === link;
+  return clean.startsWith(link);
+}
+
+const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
+---
+
+<!-- Dynamic Island Navbar -->
+<nav class="dynamic-island dynamic-island--collapsed">
+  <div class="flex items-center justify-between h-14">
+    <!-- Logo -->
+    <a href={getLocalizedPath('/', locale)} class="flex items-center gap-2 shrink-0">
+      <img
+        src="https://cdn.helixio.id/assets/img/public/logo.png"
+        alt="Helixio"
+        width="100"
+        height="28"
+        loading="eager"
+        class="h-6 md:h-7 w-auto"
+      />
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center gap-6 mx-6">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`text-sm font-medium transition-colors ${
+            isActive(link.href, currentPath)
+              ? 'text-white'
+              : 'text-white/50 hover:text-white'
+          }`}
+        >
+          {link.label}
+          {isActive(link.href, currentPath) && (
+            <span class="block h-0.5 mt-0.5 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
+          )}
+        </a>
+      ))}
+    </div>
+
+    <!-- Desktop Actions -->
+    <div class="hidden md:flex items-center gap-3">
+      <LangSwitch pathname={currentPath} client:load />
+      <a
+        href={`${appUrl}/register`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary !py-2 !px-5 !text-xs !rounded-full !gap-1.5"
+      >
+        {t('nav.getStarted', locale)}
+      </a>
+    </div>
+
+    <!-- Mobile Actions -->
+    <div class="flex md:hidden items-center gap-2">
+      <LangSwitch pathname={currentPath} client:load />
+      <NavbarMobile
+        links={navLinks.map(l => ({ ...l, active: isActive(l.href, currentPath) }))}
+        ctaLabel={t('nav.getStarted', locale)}
+        ctaHref={`${appUrl}/register`}
+        client:load
+      />
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer for fixed navbar -->
+<div class="navbar-spacer"></div>
