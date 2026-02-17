@@ -3,12 +3,13 @@ interface Props {
   icon: string;
   title: string;
   description: string;
+  href?: string;
   size?: 'lg' | 'md' | 'full';
   accent?: string;
   highlights?: string[];
 }
 
-const { icon, title, description, size = 'md', accent = '#FD8406', highlights = [] } = Astro.props;
+const { icon, title, description, href, size = 'md', accent = '#FD8406', highlights = [] } = Astro.props;
 
 const sizeClasses = {
   lg: 'md:col-span-1',
@@ -68,5 +69,11 @@ const sizeClasses = {
 
     <!-- Bottom accent line -->
     <div class="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={`background: linear-gradient(90deg, transparent, ${accent}, transparent);`}></div>
+
+    {href && (
+      <a href={href} class="absolute inset-0 z-20" aria-label={title}>
+        <span class="sr-only">{title}</span>
+      </a>
+    )}
   </div>
 </div>

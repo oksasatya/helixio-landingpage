@@ -19,9 +19,19 @@ const limits = [
   { plan: 'Standard', boards: '50', tasks: '1,000', labels: '50' },
   { plan: 'Pro', boards: 'Unlimited', tasks: 'Unlimited', labels: 'Unlimited' },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Helixio Kanban Board",
+  "applicationCategory": "ProductivityApplication",
+  "description": t('meta.kanbanDesc', locale),
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "50000", "priceCurrency": "IDR" },
+};
 ---
 
-<BaseLayout title={t('meta.kanbanTitle', locale)} description={t('meta.kanbanDesc', locale)}>
+<BaseLayout title={t('meta.kanbanTitle', locale)} description={t('meta.kanbanDesc', locale)} schema={schema}>
   <Navbar />
 
   <section class="relative overflow-hidden">
@@ -32,7 +42,7 @@ const limits = [
         {t('features.kanban.name', locale)}
       </div>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
-        {t('features.kanban.name', locale)}
+        {t('features.kanban.pageTitle', locale)}
       </h1>
       <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.kanban.desc', locale)}

@@ -1,5 +1,5 @@
 ---
-import { getLocale, t } from '../i18n/utils';
+import { getLocale, t, getLocalizedPath } from '../i18n/utils';
 import FeatureCard from './FeatureCard.astro';
 
 const locale = getLocale(Astro.url.pathname);
@@ -9,6 +9,7 @@ const features = [
     icon: 'fas fa-sticky-note',
     titleKey: 'features.notes.name',
     descKey: 'features.notes.desc',
+    href: getLocalizedPath('/features/notes', locale),
     size: 'lg' as const,
     accent: '#FD8406',
     highlights: ['features.notes.highlight1', 'features.notes.highlight2', 'features.notes.highlight3', 'features.notes.highlight4'],
@@ -17,6 +18,7 @@ const features = [
     icon: 'fas fa-columns',
     titleKey: 'features.kanban.name',
     descKey: 'features.kanban.desc',
+    href: getLocalizedPath('/features/kanban', locale),
     size: 'lg' as const,
     accent: '#FDDB12',
     highlights: ['features.kanban.highlight1', 'features.kanban.highlight2', 'features.kanban.highlight3', 'features.kanban.highlight4'],
@@ -25,6 +27,7 @@ const features = [
     icon: 'fas fa-calendar-alt',
     titleKey: 'features.calendar.name',
     descKey: 'features.calendar.desc',
+    href: getLocalizedPath('/features/calendar', locale),
     size: 'md' as const,
     accent: '#10B981',
     highlights: [],
@@ -33,6 +36,7 @@ const features = [
     icon: 'fas fa-robot',
     titleKey: 'features.ai.name',
     descKey: 'features.ai.desc',
+    href: getLocalizedPath('/features/ai-assistant', locale),
     size: 'md' as const,
     accent: '#8B5CF6',
     highlights: [],
@@ -92,6 +96,7 @@ const bottomFeature = features[5];
             icon={feature.icon}
             title={t(feature.titleKey, locale)}
             description={t(feature.descKey, locale)}
+            href={feature.href}
             size={feature.size}
             accent={feature.accent}
             highlights={feature.highlights.map(h => t(h, locale))}
@@ -106,6 +111,7 @@ const bottomFeature = features[5];
             icon={feature.icon}
             title={t(feature.titleKey, locale)}
             description={t(feature.descKey, locale)}
+            href={feature.href}
             size={feature.size}
             accent={feature.accent}
             highlights={feature.highlights.map(h => t(h, locale))}
@@ -119,6 +125,7 @@ const bottomFeature = features[5];
           icon={bottomFeature.icon}
           title={t(bottomFeature.titleKey, locale)}
           description={t(bottomFeature.descKey, locale)}
+          href={bottomFeature.href}
           size={bottomFeature.size}
           accent={bottomFeature.accent}
           highlights={bottomFeature.highlights.map(h => t(h, locale))}

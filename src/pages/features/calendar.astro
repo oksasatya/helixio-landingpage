@@ -12,9 +12,19 @@ const highlights = [
   { icon: 'fas fa-file-import', text: t('features.calendar.highlight3', locale) },
   { icon: 'fas fa-redo', text: t('features.calendar.highlight4', locale) },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Helixio Calendar Sync",
+  "applicationCategory": "ProductivityApplication",
+  "description": t('meta.calendarDesc', locale),
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "349000", "priceCurrency": "IDR" },
+};
 ---
 
-<BaseLayout title={t('meta.calendarTitle', locale)} description={t('meta.calendarDesc', locale)}>
+<BaseLayout title={t('meta.calendarTitle', locale)} description={t('meta.calendarDesc', locale)} schema={schema}>
   <Navbar />
 
   <section class="relative overflow-hidden">
@@ -28,7 +38,7 @@ const highlights = [
         {t('features.calendar.badge', locale)}
       </span>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
-        {t('features.calendar.name', locale)}
+        {t('features.calendar.pageTitle', locale)}
       </h1>
       <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.calendar.desc', locale)}

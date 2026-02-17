@@ -9,7 +9,7 @@
     "login": "Login"
   },
   "hero": {
-    "title": "Atur Semua Pekerjaan Kamu dalam Satu Platform",
+    "title": "Aplikasi Produktivitas Tim — Atur Semua Pekerjaan dalam Satu Platform",
     "subtitle": "Notes, Kanban, Kalender, dan AI — semua yang kamu butuhkan untuk produktivitas maksimal.",
     "cta": "Daftar Gratis",
     "ctaSecondary": "Lihat Demo",
@@ -24,6 +24,7 @@
     "subtitle": "Satu platform untuk catatan, tugas, jadwal, dan kolaborasi tim.",
     "notes": {
       "name": "Smart Notes",
+      "pageTitle": "Aplikasi Catatan Online — Smart Notes",
       "desc": "Tulis, organisir, dan temukan catatan dengan editor rich-text dan knowledge graph.",
       "highlight1": "Rich text editor",
       "highlight2": "Folder & tree structure",
@@ -32,6 +33,7 @@
     },
     "kanban": {
       "name": "Kanban Board",
+      "pageTitle": "Kanban Board Online untuk Manajemen Tugas",
       "desc": "Kelola tugas dengan drag-and-drop, label, prioritas, dan checklist.",
       "highlight1": "Drag-and-drop columns",
       "highlight2": "Recurring tasks",
@@ -40,6 +42,7 @@
     },
     "calendar": {
       "name": "Calendar Sync",
+      "pageTitle": "Sinkronisasi Google Calendar Otomatis",
       "desc": "Jadwalkan dan sinkronkan event dengan Google Calendar secara otomatis.",
       "highlight1": "Google Calendar sync",
       "highlight2": "Attendees & RSVP",
@@ -49,6 +52,7 @@
     },
     "ai": {
       "name": "AI Assistant",
+      "pageTitle": "Asisten AI Produktivitas untuk Tim",
       "desc": "Ringkas catatan, breakdown task, dan chat dengan konteks workspace.",
       "highlight1": "Ringkasan catatan",
       "highlight2": "Breakdown tugas otomatis",
@@ -66,7 +70,7 @@
     }
   },
   "pricing": {
-    "title": "Pilih Plan yang Tepat untuk Kamu",
+    "title": "Harga & Plan Manajemen Proyek yang Tepat",
     "subtitle": "Mulai gratis, upgrade kapan saja sesuai kebutuhan.",
     "monthly": "Bulanan",
     "sixMonths": "6 Bulan",
@@ -177,20 +181,20 @@
     "rights": "Hak cipta dilindungi."
   },
   "meta": {
-    "homeTitle": "Helixio — Platform Produktivitas All-in-One",
-    "homeDesc": "Atur semua pekerjaan kamu dalam satu platform. Notes, Kanban, Calendar, dan AI untuk produktivitas maksimal individu dan tim.",
-    "pricingTitle": "Harga — Helixio | Platform Produktivitas All-in-One",
-    "pricingDesc": "Pilih plan yang tepat untuk kebutuhan kamu. Mulai gratis, upgrade kapan saja. Notes, Kanban, Calendar, Team, dan AI Assistant.",
-    "featuresTitle": "Fitur — Helixio | Platform Produktivitas All-in-One",
-    "featuresDesc": "Jelajahi semua fitur Helixio: Smart Notes, Kanban Board, Calendar Sync, AI Assistant, dan Team Workspace.",
-    "notesTitle": "Smart Notes — Helixio | Platform Produktivitas All-in-One",
-    "notesDesc": "Tulis, organisir, dan temukan catatan dengan editor rich-text, folder tree, knowledge graph, dan attachment upload.",
-    "kanbanTitle": "Kanban Board — Helixio | Platform Produktivitas All-in-One",
-    "kanbanDesc": "Kelola tugas dengan drag-and-drop kanban board, label, prioritas, checklist, dan recurring tasks.",
-    "calendarTitle": "Calendar Sync — Helixio | Platform Produktivitas All-in-One",
-    "calendarDesc": "Jadwalkan dan sinkronkan event dengan Google Calendar. Attendees, RSVP, ICS import, dan recurring events.",
-    "aiTitle": "AI Assistant — Helixio | Platform Produktivitas All-in-One",
-    "aiDesc": "Ringkas catatan, breakdown tugas, dan chat dengan konteks workspace menggunakan AI assistant.",
+    "homeTitle": "Helixio — Aplikasi Produktivitas Tim All-in-One",
+    "homeDesc": "Aplikasi produktivitas tim all-in-one. Atur pekerjaan dengan Notes, Kanban, Calendar, dan AI dalam satu platform untuk individu dan tim.",
+    "pricingTitle": "Harga Aplikasi Manajemen Proyek — Helixio",
+    "pricingDesc": "Harga aplikasi manajemen proyek Helixio. Mulai gratis, upgrade kapan saja. Notes, Kanban, Calendar, Team, dan AI Assistant.",
+    "featuresTitle": "Fitur — Helixio | Aplikasi Produktivitas Tim",
+    "featuresDesc": "Jelajahi semua fitur Helixio: Smart Notes, Kanban Board, Calendar Sync, AI Assistant, dan Team Workspace untuk produktivitas tim.",
+    "notesTitle": "Aplikasi Catatan Online — Smart Notes | Helixio",
+    "notesDesc": "Aplikasi catatan online dengan editor rich-text, folder tree, knowledge graph, dan attachment upload. Tulis dan organisir catatan dengan mudah.",
+    "kanbanTitle": "Kanban Board Online Indonesia — Helixio",
+    "kanbanDesc": "Kanban board online untuk manajemen tugas. Drag-and-drop, label, prioritas, checklist, dan recurring tasks dalam satu platform.",
+    "calendarTitle": "Sinkronisasi Google Calendar — Helixio",
+    "calendarDesc": "Sinkronisasi Google Calendar otomatis. Jadwalkan event, attendees, RSVP, ICS import, dan recurring events di Helixio.",
+    "aiTitle": "Asisten AI Produktivitas — Helixio",
+    "aiDesc": "Asisten AI produktivitas untuk ringkas catatan, breakdown tugas, dan chat dengan konteks workspace. Tingkatkan efisiensi kerja tim.",
     "privacyTitle": "Kebijakan Privasi — Helixio",
     "privacyDesc": "Kebijakan privasi Helixio. Pelajari bagaimana kami melindungi data dan privasi kamu.",
     "termsTitle": "Syarat & Ketentuan — Helixio",

@@ -19,9 +19,19 @@ const limits = [
   { plan: 'Standard', value: '25 MB per file' },
   { plan: 'Pro', value: '100 MB per file' },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Helixio Smart Notes",
+  "applicationCategory": "ProductivityApplication",
+  "description": t('meta.notesDesc', locale),
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "IDR" },
+};
 ---
 
-<BaseLayout title={t('meta.notesTitle', locale)} description={t('meta.notesDesc', locale)}>
+<BaseLayout title={t('meta.notesTitle', locale)} description={t('meta.notesDesc', locale)} schema={schema}>
   <Navbar />
 
   <!-- Hero -->
@@ -33,7 +43,7 @@ const limits = [
         {t('features.notes.name', locale)}
       </div>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
-        {t('features.notes.name', locale)}
+        {t('features.notes.pageTitle', locale)}
       </h1>
       <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.notes.desc', locale)}

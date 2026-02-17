@@ -9,7 +9,7 @@
     "login": "Login"
   },
   "hero": {
-    "title": "Manage All Your Work in One Platform",
+    "title": "Team Productivity App — Manage All Your Work in One Platform",
     "subtitle": "Notes, Kanban, Calendar, and AI — everything you need for maximum productivity.",
     "cta": "Sign Up Free",
     "ctaSecondary": "Watch Demo",
@@ -24,6 +24,7 @@
     "subtitle": "One platform for notes, tasks, scheduling, and team collaboration.",
     "notes": {
       "name": "Smart Notes",
+      "pageTitle": "Online Note-Taking App — Smart Notes",
       "desc": "Write, organize, and find notes with rich-text editor and knowledge graph.",
       "highlight1": "Rich text editor",
       "highlight2": "Folder & tree structure",
@@ -32,6 +33,7 @@
     },
     "kanban": {
       "name": "Kanban Board",
+      "pageTitle": "Kanban Board Tool for Task Management",
       "desc": "Manage tasks with drag-and-drop, labels, priorities, and checklists.",
       "highlight1": "Drag-and-drop columns",
       "highlight2": "Recurring tasks",
@@ -40,6 +42,7 @@
     },
     "calendar": {
       "name": "Calendar Sync",
+      "pageTitle": "Google Calendar Sync Tool",
       "desc": "Schedule and sync events with Google Calendar automatically.",
       "highlight1": "Google Calendar sync",
       "highlight2": "Attendees & RSVP",
@@ -49,6 +52,7 @@
     },
     "ai": {
       "name": "AI Assistant",
+      "pageTitle": "AI Productivity Assistant for Teams",
       "desc": "Summarize notes, break down tasks, and chat with workspace context.",
       "highlight1": "Note summarization",
       "highlight2": "Automatic task breakdown",
@@ -66,7 +70,7 @@
     }
   },
   "pricing": {
-    "title": "Choose the Right Plan for You",
+    "title": "Project Management Pricing & Plans",
     "subtitle": "Start free, upgrade anytime as you need.",
     "monthly": "Monthly",
     "sixMonths": "6 Months",
@@ -177,20 +181,20 @@
     "rights": "All rights reserved."
   },
   "meta": {
-    "homeTitle": "Helixio — All-in-One Productivity Platform",
-    "homeDesc": "Manage all your work in one platform. Notes, Kanban, Calendar, and AI for maximum productivity for individuals and teams.",
-    "pricingTitle": "Pricing — Helixio | All-in-One Productivity Platform",
-    "pricingDesc": "Choose the right plan for your needs. Start free, upgrade anytime. Notes, Kanban, Calendar, Team, and AI Assistant.",
-    "featuresTitle": "Features — Helixio | All-in-One Productivity Platform",
-    "featuresDesc": "Explore all Helixio features: Smart Notes, Kanban Board, Calendar Sync, AI Assistant, and Team Workspace.",
-    "notesTitle": "Smart Notes — Helixio | All-in-One Productivity Platform",
-    "notesDesc": "Write, organize, and find notes with rich-text editor, folder tree, knowledge graph, and attachment upload.",
-    "kanbanTitle": "Kanban Board — Helixio | All-in-One Productivity Platform",
-    "kanbanDesc": "Manage tasks with drag-and-drop kanban board, labels, priorities, checklists, and recurring tasks.",
-    "calendarTitle": "Calendar Sync — Helixio | All-in-One Productivity Platform",
-    "calendarDesc": "Schedule and sync events with Google Calendar. Attendees, RSVP, ICS import, and recurring events.",
-    "aiTitle": "AI Assistant — Helixio | All-in-One Productivity Platform",
-    "aiDesc": "Summarize notes, break down tasks, and chat with workspace context using AI assistant.",
+    "homeTitle": "Helixio — Team Productivity App | All-in-One Platform",
+    "homeDesc": "Team productivity app for managing work with Notes, Kanban, Calendar, and AI — all in one platform for individuals and teams.",
+    "pricingTitle": "Project Management Pricing — Helixio",
+    "pricingDesc": "Project management pricing plans. Start free, upgrade anytime. Notes, Kanban, Calendar, Team Workspace, and AI Assistant.",
+    "featuresTitle": "Features — Helixio | Team Productivity App",
+    "featuresDesc": "Explore all Helixio features: Smart Notes, Kanban Board, Calendar Sync, AI Assistant, and Team Workspace for productivity.",
+    "notesTitle": "Online Note-Taking App — Smart Notes | Helixio",
+    "notesDesc": "Online note-taking app with rich-text editor, folder tree, knowledge graph, and attachment upload. Write and organize notes easily.",
+    "kanbanTitle": "Kanban Board Tool — Helixio | Task Management",
+    "kanbanDesc": "Kanban board tool for task management. Drag-and-drop, labels, priorities, checklists, and recurring tasks in one platform.",
+    "calendarTitle": "Google Calendar Sync Tool — Helixio",
+    "calendarDesc": "Google Calendar sync tool for automatic event scheduling. Attendees, RSVP, ICS import, and recurring events in Helixio.",
+    "aiTitle": "AI Productivity Assistant — Helixio",
+    "aiDesc": "AI productivity assistant to summarize notes, break down tasks, and chat with workspace context. Boost your team's efficiency.",
     "privacyTitle": "Privacy Policy — Helixio",
     "privacyDesc": "Helixio privacy policy. Learn how we protect your data and privacy.",
     "termsTitle": "Terms of Service — Helixio",

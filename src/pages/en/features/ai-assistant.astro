@@ -23,9 +23,19 @@ const creditCosts = [
   { operation: 'Workspace Chat (Context)', credits: '2' },
   { operation: 'Deep Workspace Analysis', credits: '5' },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Helixio AI Assistant",
+  "applicationCategory": "ProductivityApplication",
+  "description": t('meta.aiDesc', locale),
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "1200000", "priceCurrency": "IDR" },
+};
 ---
 
-<BaseLayout title={t('meta.aiTitle', locale)} description={t('meta.aiDesc', locale)}>
+<BaseLayout title={t('meta.aiTitle', locale)} description={t('meta.aiDesc', locale)} schema={schema}>
   <Navbar />
 
   <section class="relative overflow-hidden">
@@ -39,7 +49,7 @@ const creditCosts = [
         {t('features.ai.badge', locale)}
       </span>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
-        {t('features.ai.name', locale)}
+        {t('features.ai.pageTitle', locale)}
       </h1>
       <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.ai.desc', locale)}
