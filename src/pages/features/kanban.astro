@@ -25,16 +25,16 @@ const limits = [
   <Navbar />
 
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-background)] to-[#1A1026] -z-10"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-background to-[#1A1026] -z-10"></div>
     <div class="section-container text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium mb-6 reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 reveal">
         <i class="fas fa-columns"></i>
         {t('features.kanban.name', locale)}
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--color-foreground)] reveal max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
         {t('features.kanban.name', locale)}
       </h1>
-      <p class="text-lg text-[var(--color-muted)] max-w-2xl mx-auto reveal">
+      <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.kanban.desc', locale)}
       </p>
     </div>
@@ -42,11 +42,11 @@ const limits = [
 
   <section class="section-container !pt-0">
     <div class="max-w-4xl mx-auto reveal">
-      <div class="rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-xl">
-        <div class="aspect-[16/9] bg-gradient-to-br from-[var(--color-card)] to-[var(--color-border)] flex items-center justify-center">
+      <div class="rounded-2xl overflow-hidden border border-border shadow-xl">
+        <div class="aspect-[16/9] bg-linear-to-br from-card to-border flex items-center justify-center">
           <div class="text-center">
-            <i class="fas fa-columns text-5xl text-[var(--color-primary)] opacity-30 mb-3"></i>
-            <p class="text-[var(--color-muted)] text-sm">Kanban Board Screenshot</p>
+            <i class="fas fa-columns text-5xl text-primary opacity-30 mb-3"></i>
+            <p class="text-muted text-sm">Kanban Board Screenshot</p>
           </div>
         </div>
       </div>
@@ -58,10 +58,10 @@ const limits = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {highlights.map(h => (
           <div class="glass-card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0">
-              <i class={`${h.icon} text-[var(--color-primary)]`}></i>
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <i class={`${h.icon} text-primary`}></i>
             </div>
-            <span class="text-[var(--color-foreground)] font-medium">{h.text}</span>
+            <span class="text-foreground font-medium">{h.text}</span>
           </div>
         ))}
       </div>
@@ -70,26 +70,26 @@ const limits = [
 
   <section class="section-container !pt-0">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center mb-8 text-[var(--color-foreground)] reveal">
+      <h2 class="text-2xl font-bold text-center mb-8 text-foreground reveal">
         {locale === 'id' ? 'Batas per Plan' : 'Limits per Plan'}
       </h2>
       <div class="overflow-x-auto reveal">
         <table class="w-full text-sm">
           <thead>
-            <tr class="border-b border-[var(--color-border)]">
-              <th class="text-left py-3 px-4 font-semibold text-[var(--color-foreground)]">Plan</th>
-              <th class="text-center py-3 px-4 font-semibold text-[var(--color-foreground)]">Boards</th>
-              <th class="text-center py-3 px-4 font-semibold text-[var(--color-foreground)]">Tasks/Board</th>
-              <th class="text-center py-3 px-4 font-semibold text-[var(--color-foreground)]">Labels</th>
+            <tr class="border-b border-border">
+              <th class="text-left py-3 px-4 font-semibold text-foreground">Plan</th>
+              <th class="text-center py-3 px-4 font-semibold text-foreground">Boards</th>
+              <th class="text-center py-3 px-4 font-semibold text-foreground">Tasks/Board</th>
+              <th class="text-center py-3 px-4 font-semibold text-foreground">Labels</th>
             </tr>
           </thead>
           <tbody>
             {limits.map(l => (
-              <tr class="border-b border-[var(--color-border)]">
-                <td class="py-3 px-4 font-medium text-[var(--color-foreground)]">{l.plan}</td>
-                <td class="py-3 px-4 text-center text-[var(--color-muted)]">{l.boards}</td>
-                <td class="py-3 px-4 text-center text-[var(--color-muted)]">{l.tasks}</td>
-                <td class="py-3 px-4 text-center text-[var(--color-muted)]">{l.labels}</td>
+              <tr class="border-b border-border">
+                <td class="py-3 px-4 font-medium text-foreground">{l.plan}</td>
+                <td class="py-3 px-4 text-center text-muted">{l.boards}</td>
+                <td class="py-3 px-4 text-center text-muted">{l.tasks}</td>
+                <td class="py-3 px-4 text-center text-muted">{l.labels}</td>
               </tr>
             ))}
           </tbody>

@@ -51,30 +51,27 @@ const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
       </div>
 
       <!-- Trust badges -->
-      <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-6 justify-center items-center text-sm text-[var(--color-muted)] reveal" style="transition-delay: 0.3s">
+      <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-6 justify-center items-center text-sm text-muted reveal" style="transition-delay: 0.3s">
         <span class="flex items-center gap-2">
-          <i class="fas fa-check-circle text-[var(--color-success)]"></i>
+          <i class="fas fa-check-circle text-success"></i>
           {t('hero.trust.noCreditCard', locale)}
         </span>
         <span class="flex items-center gap-2">
-          <i class="fas fa-check-circle text-[var(--color-success)]"></i>
+          <i class="fas fa-check-circle text-success"></i>
           {t('hero.trust.freeForever', locale)}
         </span>
         <span class="flex items-center gap-2">
-          <i class="fas fa-check-circle text-[var(--color-success)]"></i>
+          <i class="fas fa-check-circle text-success"></i>
           {t('hero.trust.quickSetup', locale)}
         </span>
       </div>
     </div>
 
-    <!-- Hero visual placeholder -->
+    <!-- Hero visual -->
     <div class="mt-10 md:mt-16 max-w-5xl mx-auto reveal" style="transition-delay: 0.4s">
-      <div class="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-[var(--color-border)]">
-        <div class="aspect-[16/9] bg-gradient-to-br from-[var(--color-card)] to-[var(--color-border)] flex items-center justify-center">
-          <div class="text-center">
-            <i class="fas fa-desktop text-4xl md:text-5xl text-[var(--color-primary)] mb-4 opacity-40"></i>
-            <p class="text-[var(--color-muted)] text-xs md:text-sm">Dashboard Preview</p>
-          </div>
+      <div class="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-border">
+        <div class="aspect-[16/9]">
+          <img src="https://cdn.helixio.id/assets/img/public/dashboard.jpeg" alt="Helixio Dashboard" class="w-full h-full object-cover" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>

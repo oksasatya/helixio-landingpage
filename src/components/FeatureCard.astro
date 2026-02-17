@@ -20,10 +20,10 @@ const sizeClasses = {
 <div class={`group relative rounded-2xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] ${sizeClasses[size]} reveal`}>
   <!-- Gradient border -->
   <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={`background: linear-gradient(135deg, ${accent}40, transparent 50%, ${accent}20);`}></div>
-  <div class="absolute inset-0 rounded-2xl bg-[var(--color-border)] group-hover:opacity-0 transition-opacity duration-500"></div>
+  <div class="absolute inset-0 rounded-2xl bg-border group-hover:opacity-0 transition-opacity duration-500"></div>
 
   <!-- Inner card -->
-  <div class={`relative m-[1px] rounded-[15px] bg-[var(--color-card)] overflow-hidden ${size === 'lg' ? 'p-7 md:p-8' : size === 'full' ? 'p-6 md:p-8' : 'p-6'}`}>
+  <div class={`relative m-[1px] rounded-[15px] bg-card overflow-hidden ${size === 'lg' ? 'p-7 md:p-8' : size === 'full' ? 'p-6 md:p-8' : 'p-6'}`}>
     <!-- Inner glow on hover -->
     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={`background: radial-gradient(ellipse at 30% 0%, ${accent}08 0%, transparent 70%);`} aria-hidden="true"></div>
 
@@ -41,12 +41,12 @@ const sizeClasses = {
         </div>
 
         <!-- Title -->
-        <h3 class={`font-bold text-[var(--color-foreground)] mb-2 ${size === 'lg' ? 'text-xl md:text-2xl' : 'text-lg'}`}>
+        <h3 class={`font-bold text-foreground mb-2 ${size === 'lg' ? 'text-xl md:text-2xl' : 'text-lg'}`}>
           {title}
         </h3>
 
         <!-- Description -->
-        <p class={`text-[var(--color-muted)] leading-relaxed ${size === 'lg' ? 'text-sm md:text-base' : 'text-sm'}`}>
+        <p class={`text-muted leading-relaxed ${size === 'lg' ? 'text-sm md:text-base' : 'text-sm'}`}>
           {description}
         </p>
       </div>
@@ -56,7 +56,7 @@ const sizeClasses = {
         <div class={`mt-4 ${size === 'full' ? 'md:mt-0 md:flex-1' : ''}`}>
           <div class={`grid ${size === 'full' ? 'grid-cols-2 gap-2' : 'grid-cols-2 gap-2'}`}>
             {highlights.map((h) => (
-              <div class="flex items-center gap-2 text-xs text-[var(--color-muted)] py-1.5 px-2.5 rounded-lg bg-white/[0.03]">
+              <div class="flex items-center gap-2 text-xs text-muted py-1.5 px-2.5 rounded-lg bg-white/[0.03]">
                 <span class="w-1 h-1 rounded-full shrink-0" style={`background: ${accent};`}></span>
                 {h}
               </div>

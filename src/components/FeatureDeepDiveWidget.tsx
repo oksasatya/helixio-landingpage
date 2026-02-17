@@ -7,6 +7,7 @@ interface DeepDiveFeature {
   badge?: string;
   limits?: { plan: string; value: string }[];
   accent: string;
+  image?: string;
 }
 
 interface Props {
@@ -134,7 +135,7 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
   return (
     <div ref={containerRef} className="relative">
       {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FD8406]/[0.02] to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/[0.02] to-transparent pointer-events-none" aria-hidden="true" />
       <div className="absolute left-1/2 top-0 bottom-0 w-px pointer-events-none hidden lg:block" aria-hidden="true"
         style={{ backgroundImage: 'linear-gradient(to bottom, transparent, rgba(253,132,6,0.1) 20%, rgba(253,219,18,0.1) 80%, transparent)' }} />
 
@@ -150,7 +151,7 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
             </div>
             {features.map((f, i) => (
               <button
-                key={i}
+                key={f.name}
                 className={`deep-dive-dot ${i === activeIndex ? 'active' : ''}`}
                 aria-label={f.name}
                 title={f.name}
@@ -162,26 +163,31 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
           <div ref={panelsRef} className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16"
             style={{ minHeight: '70vh' }}>
             {features.map((feature, i) => (
-              <div key={i} className="dd-panel absolute inset-0 flex items-center">
+              <div key={feature.name} className="dd-panel absolute inset-0 flex items-center">
                 <div className="grid grid-cols-2 gap-12 lg:gap-16 items-center w-full">
                   {/* Visual */}
                   <div className={`dd-visual ${i % 2 !== 0 ? 'order-2' : ''}`}>
-                    <div className="rounded-2xl overflow-hidden border border-[#1F1F2E] shadow-2xl relative group">
+                    <div className="rounded-2xl overflow-hidden border border-border shadow-2xl relative group">
                       {/* Accent glow */}
                       <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
                         style={{ background: `radial-gradient(circle, ${feature.accent}15, transparent)` }} />
-                      <div className="aspect-[4/3] bg-gradient-to-br from-[#111118] to-[#1F1F2E] flex items-center justify-center relative overflow-hidden">
-                        {/* Decorative grid inside */}
-                        <div className="absolute inset-0 opacity-[0.03]"
-                          style={{ backgroundImage: `linear-gradient(${feature.accent}40 1px, transparent 1px), linear-gradient(90deg, ${feature.accent}40 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
-                        {/* Large icon */}
-                        <div className="relative z-10 text-center">
-                          <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center"
-                            style={{ background: `linear-gradient(135deg, ${feature.accent}20, ${feature.accent}08)` }}>
-                            <i className={`${feature.icon} text-4xl`} style={{ color: feature.accent }} />
-                          </div>
-                          <p className="text-[#9CA3AF] text-xs tracking-widest uppercase">Screenshot</p>
-                        </div>
+                      <div className="aspect-[4/3] bg-linear-to-br from-card to-border flex items-center justify-center relative overflow-hidden">
+                        {feature.image ? (
+                          <img src={feature.image} alt={feature.name} className="w-full h-full object-cover" loading="lazy" />
+                        ) : (
+                          <>
+                            {/* Decorative grid inside */}
+                            <div className="absolute inset-0 opacity-[0.03]"
+                              style={{ backgroundImage: `linear-gradient(${feature.accent}40 1px, transparent 1px), linear-gradient(90deg, ${feature.accent}40 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+                            <div className="relative z-10 text-center">
+                              <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center"
+                                style={{ background: `linear-gradient(135deg, ${feature.accent}20, ${feature.accent}08)` }}>
+                                <i className={`${feature.icon} text-4xl`} style={{ color: feature.accent }} />
+                              </div>
+                              <p className="text-muted text-xs tracking-widest uppercase">Screenshot</p>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -193,7 +199,7 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
                         style={{ background: `linear-gradient(135deg, ${feature.accent}18, ${feature.accent}08)` }}>
                         <i className={`${feature.icon} text-lg`} style={{ color: feature.accent }} />
                       </div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-[#F5F5F7]" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
                         {feature.name}
                       </h3>
                     </div>
@@ -207,7 +213,7 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
 
                     <ul className="space-y-3 mb-6">
                       {feature.highlights.map((h, hi) => (
-                        <li key={hi} className="dd-highlight flex items-center gap-3 text-[#F5F5F7]">
+                        <li key={hi} className="dd-highlight flex items-center gap-3 text-foreground">
                           <span className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
                             style={{ background: `${feature.accent}15` }}>
                             <i className="fas fa-check text-xs" style={{ color: feature.accent }} />
@@ -218,12 +224,12 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
                     </ul>
 
                     {feature.limits && (
-                      <div className="dd-limits rounded-xl bg-[#111118]/80 border border-[#1F1F2E] p-4 backdrop-blur-sm">
+                      <div className="dd-limits rounded-xl bg-card/80 border border-border p-4 backdrop-blur-sm">
                         <div className="grid grid-cols-4 gap-3 text-center">
                           {feature.limits.map((limit, li) => (
                             <div key={li}>
-                              <p className="text-xs text-[#9CA3AF] mb-1">{limit.plan}</p>
-                              <p className="text-sm font-semibold text-[#F5F5F7]">{limit.value}</p>
+                              <p className="text-xs text-muted mb-1">{limit.plan}</p>
+                              <p className="text-sm font-semibold text-foreground">{limit.value}</p>
                             </div>
                           ))}
                         </div>
@@ -239,7 +245,7 @@ export default function FeatureDeepDiveWidget({ features }: Props) {
         /* Mobile: Simple scroll-triggered reveal per panel */
         <div className="space-y-0">
           {features.map((feature, i) => (
-            <MobilePanel key={i} feature={feature} index={i} />
+            <MobilePanel key={feature.name} feature={feature} index={i} />
           ))}
         </div>
       )}
@@ -276,17 +282,23 @@ function MobilePanel({ feature, index }: { feature: DeepDiveFeature; index: numb
         }}
       >
         {/* Visual */}
-        <div className="rounded-xl overflow-hidden border border-[#1F1F2E] shadow-lg mb-6">
-          <div className="aspect-[4/3] bg-gradient-to-br from-[#111118] to-[#1F1F2E] flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.03]"
-              style={{ backgroundImage: `linear-gradient(${feature.accent}40 1px, transparent 1px), linear-gradient(90deg, ${feature.accent}40 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
-            <div className="relative z-10 text-center">
-              <div className="w-16 h-16 rounded-xl mx-auto mb-3 flex items-center justify-center"
-                style={{ background: `linear-gradient(135deg, ${feature.accent}20, ${feature.accent}08)` }}>
-                <i className={`${feature.icon} text-3xl`} style={{ color: feature.accent }} />
-              </div>
-              <p className="text-[#9CA3AF] text-xs tracking-widest uppercase">Screenshot</p>
-            </div>
+        <div className="rounded-xl overflow-hidden border border-border shadow-lg mb-6">
+          <div className="aspect-[4/3] bg-linear-to-br from-card to-border flex items-center justify-center relative overflow-hidden">
+            {feature.image ? (
+              <img src={feature.image} alt={feature.name} className="w-full h-full object-cover" loading="lazy" />
+            ) : (
+              <>
+                <div className="absolute inset-0 opacity-[0.03]"
+                  style={{ backgroundImage: `linear-gradient(${feature.accent}40 1px, transparent 1px), linear-gradient(90deg, ${feature.accent}40 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+                <div className="relative z-10 text-center">
+                  <div className="w-16 h-16 rounded-xl mx-auto mb-3 flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${feature.accent}20, ${feature.accent}08)` }}>
+                    <i className={`${feature.icon} text-3xl`} style={{ color: feature.accent }} />
+                  </div>
+                  <p className="text-muted text-xs tracking-widest uppercase">Screenshot</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -297,7 +309,7 @@ function MobilePanel({ feature, index }: { feature: DeepDiveFeature; index: numb
               style={{ background: `linear-gradient(135deg, ${feature.accent}18, ${feature.accent}08)` }}>
               <i className={`${feature.icon} text-base`} style={{ color: feature.accent }} />
             </div>
-            <h3 className="text-xl font-bold text-[#F5F5F7]" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-xl font-bold text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
               {feature.name}
             </h3>
           </div>
@@ -311,7 +323,7 @@ function MobilePanel({ feature, index }: { feature: DeepDiveFeature; index: numb
 
           <ul className="space-y-3 mb-5">
             {feature.highlights.map((h, hi) => (
-              <li key={hi} className="flex items-center gap-3 text-[#F5F5F7]"
+              <li key={hi} className="flex items-center gap-3 text-foreground"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateY(0)' : 'translateY(12px)',
@@ -327,7 +339,7 @@ function MobilePanel({ feature, index }: { feature: DeepDiveFeature; index: numb
           </ul>
 
           {feature.limits && (
-            <div className="rounded-xl bg-[#111118]/80 border border-[#1F1F2E] p-4"
+            <div className="rounded-xl bg-card/80 border border-border p-4"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(16px)',
@@ -336,8 +348,8 @@ function MobilePanel({ feature, index }: { feature: DeepDiveFeature; index: numb
               <div className="grid grid-cols-2 gap-3 text-center">
                 {feature.limits.map((limit, li) => (
                   <div key={li}>
-                    <p className="text-xs text-[#9CA3AF] mb-1">{limit.plan}</p>
-                    <p className="text-sm font-semibold text-[#F5F5F7]">{limit.value}</p>
+                    <p className="text-xs text-muted mb-1">{limit.plan}</p>
+                    <p className="text-sm font-semibold text-foreground">{limit.value}</p>
                   </div>
                 ))}
               </div>

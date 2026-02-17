@@ -98,7 +98,7 @@ export default function NavbarMobile({ links, ctaLabel, ctaHref }: Props) {
             >
               <span className="flex items-center gap-3">
                 {link.active && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                 )}
                 {link.label}
               </span>

@@ -51,7 +51,7 @@ const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
         >
           {link.label}
           {isActive(link.href, currentPath) && (
-            <span class="block h-0.5 mt-0.5 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
+            <span class="block h-0.5 mt-0.5 rounded-full bg-linear-to-r from-primary to-secondary"></span>
           )}
         </a>
       ))}

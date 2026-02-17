@@ -9,7 +9,7 @@ const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
 ---
 
 <section class="relative overflow-hidden gradient-border-top">
-  <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-secondary)]/5 -z-10"></div>
+  <div class="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/5 -z-10"></div>
   <!-- Grid pattern overlay -->
   <GridPattern variant="grid" class="-z-[5] opacity-40 pattern-fade" />
   <!-- Gradient orbs -->
@@ -18,10 +18,10 @@ const appUrl = import.meta.env.PUBLIC_URL_DASHBOARD;
   <Sparkles count={5} class="z-0" />
 
   <div class="section-container text-center relative z-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-foreground)] mb-4 reveal">
+    <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4 reveal">
       {t('cta.title', locale)}
     </h2>
-    <p class="text-lg text-[var(--color-muted)] mb-8 reveal" style="transition-delay: 0.1s">
+    <p class="text-lg text-muted mb-8 reveal" style="transition-delay: 0.1s">
       {t('cta.subtitle', locale)}
     </p>
     <div class="reveal" style="transition-delay: 0.2s">

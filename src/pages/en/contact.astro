@@ -36,7 +36,7 @@ const schema = {
     <div class="absolute inset-0 pointer-events-none pattern-grid pattern-fade" aria-hidden="true"></div>
 
     <div class="section-container relative z-10">
-      <h1 class="section-title text-[var(--color-foreground)] reveal">
+      <h1 class="section-title text-foreground reveal">
         {t('contact.title', 'en')}
       </h1>
       <p class="section-subtitle reveal">
@@ -51,9 +51,9 @@ const schema = {
           <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[#25D366]/10 group-hover:bg-[#25D366]/20 transition-colors">
             <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
           </div>
-          <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-1">{t('contact.whatsapp', 'en')}</h3>
-          <p class="text-sm text-[var(--color-muted)] mb-3">{t('contact.whatsappDesc', 'en')}</p>
-          <p class="text-sm font-medium text-[var(--color-foreground)]">{whatsappNumber}</p>
+          <h3 class="text-lg font-semibold text-foreground mb-1">{t('contact.whatsapp', 'en')}</h3>
+          <p class="text-sm text-muted mb-3">{t('contact.whatsappDesc', 'en')}</p>
+          <p class="text-sm font-medium text-foreground">{whatsappNumber}</p>
           <span class="inline-block mt-3 text-xs font-semibold text-[#25D366] group-hover:underline">
             {t('contact.whatsappCta', 'en')} <i class="fas fa-arrow-right text-[10px] ml-1"></i>
           </span>
@@ -65,9 +65,9 @@ const schema = {
           <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[#E4405F]/10 group-hover:bg-[#E4405F]/20 transition-colors">
             <i class="fab fa-instagram text-2xl text-[#E4405F]"></i>
           </div>
-          <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-1">{t('contact.instagram', 'en')}</h3>
-          <p class="text-sm text-[var(--color-muted)] mb-3">{t('contact.instagramDesc', 'en')}</p>
-          <p class="text-sm font-medium text-[var(--color-foreground)]">@rahanmancar</p>
+          <h3 class="text-lg font-semibold text-foreground mb-1">{t('contact.instagram', 'en')}</h3>
+          <p class="text-sm text-muted mb-3">{t('contact.instagramDesc', 'en')}</p>
+          <p class="text-sm font-medium text-foreground">@rahanmancar</p>
           <span class="inline-block mt-3 text-xs font-semibold text-[#E4405F] group-hover:underline">
             {t('contact.instagramCta', 'en')} <i class="fas fa-arrow-right text-[10px] ml-1"></i>
           </span>
@@ -75,22 +75,22 @@ const schema = {
 
         <!-- Address -->
         <div class="glass-card p-6 text-center reveal" style="transition-delay: 0.2s">
-          <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[var(--color-primary)]/10">
-            <i class="fas fa-map-marker-alt text-2xl text-[var(--color-primary)]"></i>
+          <div class="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-primary/10">
+            <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
           </div>
-          <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-1">{t('contact.address', 'en')}</h3>
-          <p class="text-sm text-[var(--color-muted)] mb-3">{t('contact.addressDesc', 'en')}</p>
-          <p class="text-xs text-[var(--color-foreground)] leading-relaxed">{address}</p>
+          <h3 class="text-lg font-semibold text-foreground mb-1">{t('contact.address', 'en')}</h3>
+          <p class="text-sm text-muted mb-3">{t('contact.addressDesc', 'en')}</p>
+          <p class="text-xs text-foreground leading-relaxed">{address}</p>
         </div>
       </div>
 
       <!-- Google Maps Embed -->
       {mapsEmbed && (
         <div class="max-w-4xl mx-auto reveal">
-          <h2 class="text-xl md:text-2xl font-bold text-[var(--color-foreground)] mb-4 text-center" style="font-family: var(--font-heading)">
+          <h2 class="text-xl md:text-2xl font-bold text-foreground mb-4 text-center" style="font-family: var(--font-heading)">
             {t('contact.mapTitle', 'en')}
           </h2>
-          <div class="rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-lg">
+          <div class="rounded-2xl overflow-hidden border border-border shadow-lg">
             <iframe
               src={mapsEmbed}
               width="100%"

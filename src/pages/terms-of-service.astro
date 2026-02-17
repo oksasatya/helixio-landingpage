@@ -13,22 +13,22 @@ const sections = tArray('terms.sections', locale);
 
   <article class="section-container">
     <div class="max-w-3xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-foreground)]">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-foreground">
         {t('terms.title', locale)}
       </h1>
-      <p class="text-sm text-[var(--color-muted)] mb-8">
+      <p class="text-sm text-muted mb-8">
         {t('terms.lastUpdated', locale)}
       </p>
-      <p class="text-[var(--color-foreground)] mb-8 leading-relaxed">
+      <p class="text-foreground mb-8 leading-relaxed">
         {t('terms.intro', locale)}
       </p>
 
       {sections.map((section) => (
         <div class="mb-8">
-          <h2 class="text-xl font-semibold mb-3 text-[var(--color-foreground)]">
+          <h2 class="text-xl font-semibold mb-3 text-foreground">
             {section.title}
           </h2>
-          <p class="text-[var(--color-muted)] leading-relaxed">
+          <p class="text-muted leading-relaxed">
             {section.content}
           </p>
         </div>

@@ -25,16 +25,16 @@ const limits = [
   <Navbar />
 
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-background)] to-[#1A1026] -z-10"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-background to-[#1A1026] -z-10"></div>
     <div class="section-container text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium mb-6 reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 reveal">
         <i class="fas fa-sticky-note"></i>
         {t('features.notes.name', locale)}
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--color-foreground)] reveal max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
         {t('features.notes.name', locale)}
       </h1>
-      <p class="text-lg text-[var(--color-muted)] max-w-2xl mx-auto reveal">
+      <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.notes.desc', locale)}
       </p>
     </div>
@@ -42,11 +42,11 @@ const limits = [
 
   <section class="section-container !pt-0">
     <div class="max-w-4xl mx-auto reveal">
-      <div class="rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-xl">
-        <div class="aspect-[16/9] bg-gradient-to-br from-[var(--color-card)] to-[var(--color-border)] flex items-center justify-center">
+      <div class="rounded-2xl overflow-hidden border border-border shadow-xl">
+        <div class="aspect-[16/9] bg-linear-to-br from-card to-border flex items-center justify-center">
           <div class="text-center">
-            <i class="fas fa-sticky-note text-5xl text-[var(--color-primary)] opacity-30 mb-3"></i>
-            <p class="text-[var(--color-muted)] text-sm">Notes Editor Screenshot</p>
+            <i class="fas fa-sticky-note text-5xl text-primary opacity-30 mb-3"></i>
+            <p class="text-muted text-sm">Notes Editor Screenshot</p>
           </div>
         </div>
       </div>
@@ -58,10 +58,10 @@ const limits = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {highlights.map(h => (
           <div class="glass-card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0">
-              <i class={`${h.icon} text-[var(--color-primary)]`}></i>
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <i class={`${h.icon} text-primary`}></i>
             </div>
-            <span class="text-[var(--color-foreground)] font-medium">{h.text}</span>
+            <span class="text-foreground font-medium">{h.text}</span>
           </div>
         ))}
       </div>
@@ -70,14 +70,14 @@ const limits = [
 
   <section class="section-container !pt-0">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center mb-8 text-[var(--color-foreground)] reveal">
+      <h2 class="text-2xl font-bold text-center mb-8 text-foreground reveal">
         Upload Limits per Plan
       </h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
         {limits.map(l => (
-          <div class="text-center p-4 rounded-xl bg-[var(--color-card)] border border-[var(--color-border)]">
-            <p class="text-sm text-[var(--color-muted)] mb-1">{l.plan}</p>
-            <p class="text-lg font-bold text-[var(--color-foreground)]">{l.value}</p>
+          <div class="text-center p-4 rounded-xl bg-card border border-border">
+            <p class="text-sm text-muted mb-1">{l.plan}</p>
+            <p class="text-lg font-bold text-foreground">{l.value}</p>
           </div>
         ))}
       </div>

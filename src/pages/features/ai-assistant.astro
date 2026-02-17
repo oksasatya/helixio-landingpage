@@ -29,19 +29,19 @@ const creditCosts = [
   <Navbar />
 
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-background)] to-[#1A1026] -z-10"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-background to-[#1A1026] -z-10"></div>
     <div class="section-container text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium mb-6 reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 reveal">
         <i class="fas fa-robot"></i>
         {t('features.ai.name', locale)}
       </div>
-      <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white mb-4">
+      <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-linear-to-r from-primary to-secondary text-white mb-4">
         {t('features.ai.badge', locale)}
       </span>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--color-foreground)] reveal max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-foreground reveal max-w-3xl mx-auto">
         {t('features.ai.name', locale)}
       </h1>
-      <p class="text-lg text-[var(--color-muted)] max-w-2xl mx-auto reveal">
+      <p class="text-lg text-muted max-w-2xl mx-auto reveal">
         {t('features.ai.desc', locale)}
       </p>
     </div>
@@ -49,11 +49,11 @@ const creditCosts = [
 
   <section class="section-container !pt-0">
     <div class="max-w-4xl mx-auto reveal">
-      <div class="rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-xl">
-        <div class="aspect-[16/9] bg-gradient-to-br from-[var(--color-card)] to-[var(--color-border)] flex items-center justify-center">
+      <div class="rounded-2xl overflow-hidden border border-border shadow-xl">
+        <div class="aspect-[16/9] bg-linear-to-br from-card to-border flex items-center justify-center">
           <div class="text-center">
-            <i class="fas fa-robot text-5xl text-[var(--color-primary)] opacity-30 mb-3"></i>
-            <p class="text-[var(--color-muted)] text-sm">AI Assistant Screenshot</p>
+            <i class="fas fa-robot text-5xl text-primary opacity-30 mb-3"></i>
+            <p class="text-muted text-sm">AI Assistant Screenshot</p>
           </div>
         </div>
       </div>
@@ -65,10 +65,10 @@ const creditCosts = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {highlights.map(h => (
           <div class="glass-card flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0">
-              <i class={`${h.icon} text-[var(--color-primary)]`}></i>
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <i class={`${h.icon} text-primary`}></i>
             </div>
-            <span class="text-[var(--color-foreground)] font-medium">{h.text}</span>
+            <span class="text-foreground font-medium">{h.text}</span>
           </div>
         ))}
       </div>
@@ -78,24 +78,24 @@ const creditCosts = [
   <!-- Credit costs table -->
   <section class="section-container !pt-0">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center mb-8 text-[var(--color-foreground)] reveal">
+      <h2 class="text-2xl font-bold text-center mb-8 text-foreground reveal">
         {locale === 'id' ? 'Biaya Credit per Operasi' : 'Credit Cost per Operation'}
       </h2>
       <div class="overflow-x-auto reveal">
         <table class="w-full text-sm">
           <thead>
-            <tr class="border-b border-[var(--color-border)]">
-              <th class="text-left py-3 px-4 font-semibold text-[var(--color-foreground)]">
+            <tr class="border-b border-border">
+              <th class="text-left py-3 px-4 font-semibold text-foreground">
                 {locale === 'id' ? 'Operasi' : 'Operation'}
               </th>
-              <th class="text-center py-3 px-4 font-semibold text-[var(--color-foreground)]">Credits</th>
+              <th class="text-center py-3 px-4 font-semibold text-foreground">Credits</th>
             </tr>
           </thead>
           <tbody>
             {creditCosts.map(c => (
-              <tr class="border-b border-[var(--color-border)]">
-                <td class="py-3 px-4 text-[var(--color-foreground)]">{c.operation}</td>
-                <td class="py-3 px-4 text-center font-semibold text-[var(--color-primary)]">{c.credits}</td>
+              <tr class="border-b border-border">
+                <td class="py-3 px-4 text-foreground">{c.operation}</td>
+                <td class="py-3 px-4 text-center font-semibold text-primary">{c.credits}</td>
               </tr>
             ))}
           </tbody>

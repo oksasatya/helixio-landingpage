@@ -22,42 +22,42 @@ const rows = [
 function renderCell(value: string | boolean) {
   if (typeof value === 'boolean') {
     return value
-      ? '<i class="fas fa-check text-[var(--color-success)]"></i>'
-      : '<i class="fas fa-times text-[var(--color-muted)] opacity-40"></i>';
+      ? '<i class="fas fa-check text-success"></i>'
+      : '<i class="fas fa-times text-muted opacity-40"></i>';
   }
   return value;
 }
 ---
 
 <section class="relative">
-  <div class="section-container !pt-0">
-    <h2 class="section-title text-[var(--color-foreground)] reveal">
+  <div class="section-container pt-0!">
+    <h2 class="section-title text-foreground reveal">
       {t('pricing.comparisonTitle', locale)}
     </h2>
 
-    <div class="overflow-x-auto mt-8 md:mt-12 reveal rounded-xl border border-[var(--color-border)]">
-      <div class="min-w-[640px]">
+    <div class="overflow-x-auto mt-8 md:mt-12 reveal rounded-xl border border-border">
+      <div class="min-w-160">
         <table class="w-full text-xs sm:text-sm">
           <thead>
-            <tr class="border-b border-[var(--color-border)] bg-[var(--color-card)]">
-              <th class="text-left py-3 px-3 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">
+            <tr class="border-b border-border bg-card">
+              <th class="text-left py-3 px-3 md:py-4 md:px-4 font-semibold text-foreground">
                 {locale === 'id' ? 'Fitur' : 'Feature'}
               </th>
-              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">Free</th>
-              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">Basic</th>
-              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-foreground">Free</th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-foreground">Basic</th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-foreground">
                 <span class="inline-flex items-center gap-1">
                   Standard
-                  <i class="fas fa-star text-[var(--color-primary)] text-xs"></i>
+                  <i class="fas fa-star text-primary text-xs"></i>
                 </span>
               </th>
-              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-[var(--color-foreground)]">Pro</th>
+              <th class="text-center py-3 px-2 md:py-4 md:px-4 font-semibold text-foreground">Pro</th>
             </tr>
           </thead>
         <tbody>
           {rows.map((row) => (
-            <tr class="border-b border-[var(--color-border)] hover:bg-[var(--color-card)] transition-colors">
-              <td class="py-2.5 px-3 md:py-3 md:px-4 font-medium text-[var(--color-foreground)]">{row.label}</td>
+            <tr class="border-b border-border hover:bg-card transition-colors">
+              <td class="py-2.5 px-3 md:py-3 md:px-4 font-medium text-foreground">{row.label}</td>
               <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.free)} />
               <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.basic)} />
               <td class="py-2.5 px-2 md:py-3 md:px-4 text-center" set:html={renderCell(row.standard)} />
@@ -68,7 +68,7 @@ function renderCell(value: string | boolean) {
       </table>
       </div>
       <!-- Mobile scroll hint -->
-      <div class="sm:hidden text-center py-2 text-xs text-[var(--color-muted)]">
+      <div class="sm:hidden text-center py-2 text-xs text-muted">
         <i class="fas fa-arrows-alt-h mr-1"></i>
         {locale === 'id' ? 'Geser untuk lihat semua' : 'Scroll to see all'}
       </div>

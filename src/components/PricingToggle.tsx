@@ -22,7 +22,7 @@ interface Props {
   children: ReactNode;
 }
 
-export default function PricingToggle({ labels, children }: Props) {
+export default function PricingToggle({ labels, children }: Readonly<Props>) {
   const [cycle, setCycle] = useState<BillingCycle>('monthly');
 
   const buttons: { key: BillingCycle; label: string; badge?: string }[] = [
@@ -35,20 +35,20 @@ export default function PricingToggle({ labels, children }: Props) {
     <PricingContext.Provider value={{ cycle, setCycle }}>
       {/* Toggle */}
       <div className="flex justify-center mb-8 md:mb-12">
-        <div className="inline-flex rounded-xl bg-[var(--color-card)] border border-[var(--color-border)] p-1 w-full sm:w-auto">
+        <div className="inline-flex rounded-xl bg-card border border-border p-1 w-full sm:w-auto">
           {buttons.map((btn) => (
             <button
               key={btn.key}
               onClick={() => setCycle(btn.key)}
               className={`relative flex-1 sm:flex-none px-3 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                 cycle === btn.key
-                  ? 'bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white shadow-md'
-                  : 'text-[var(--color-muted)] hover:text-[var(--color-foreground)]'
+                  ? 'bg-linear-to-r from-primary to-secondary text-white shadow-md'
+                  : 'text-muted hover:text-foreground'
               }`}
             >
               {btn.label}
               {btn.badge && cycle !== btn.key && (
-                <span className="absolute -top-2 -right-1 sm:-right-2 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold rounded-full bg-[var(--color-success)] text-white whitespace-nowrap">
+                <span className="absolute -top-2 -right-1 sm:-right-2 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold rounded-full bg-success text-white whitespace-nowrap">
                   {btn.badge}
                 </span>
               )}

@@ -42,7 +42,7 @@ export default function PricingCard({
   perMonthLabel,
   foreverLabel,
   saveLabel,
-}: Props) {
+}: Readonly<Props>) {
   const { cycle } = usePricingCycle();
 
   let displayPrice = priceMonthly;
@@ -65,14 +65,14 @@ export default function PricingCard({
     <div
       className={`relative rounded-2xl p-6 md:p-8 border transition-all flex flex-col ${
         isPopular
-          ? 'border-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/10 scale-[1.02]'
-          : 'border-[var(--color-border)]'
-      } bg-[var(--color-card)]`}
+          ? 'border-primary shadow-lg shadow-primary/10 scale-[1.02]'
+          : 'border-border'
+      } bg-card`}
     >
       {/* Popular badge */}
       {isPopular && popularLabel && (
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span className="px-4 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white shadow-md whitespace-nowrap">
+          <span className="px-4 py-1.5 text-xs font-bold rounded-full bg-linear-to-r from-primary to-secondary text-white shadow-md whitespace-nowrap">
             <i className="fas fa-star mr-1" />
             {popularLabel}
           </span>
@@ -80,47 +80,47 @@ export default function PricingCard({
       )}
 
       {/* Plan name */}
-      <h3 className="text-lg md:text-xl font-bold text-[var(--color-foreground)] mb-2">
+      <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
         {name}
       </h3>
-      <p className="text-xs md:text-sm text-[var(--color-muted)] mb-4 md:mb-6">{description}</p>
+      <p className="text-xs md:text-sm text-muted mb-4 md:mb-6">{description}</p>
 
       {/* Price */}
       <div className="mb-4 md:mb-6">
         {isFree ? (
           <div>
-            <span className="text-3xl md:text-4xl font-extrabold text-[var(--color-foreground)]">
+            <span className="text-3xl md:text-4xl font-extrabold text-foreground">
               Rp 0
             </span>
-            <span className="text-[var(--color-muted)] ml-1">/{foreverLabel}</span>
+            <span className="text-muted ml-1">/{foreverLabel}</span>
           </div>
         ) : (
           <div>
-            {cycle !== 'monthly' ? (
-              <>
-                <span className="text-3xl md:text-4xl font-extrabold text-[var(--color-foreground)]">
-                  Rp {formatPrice(monthlyEquivalent)}
-                </span>
-                <span className="text-[var(--color-muted)] ml-1">{perMonthLabel}</span>
-                <div className="mt-1 flex items-center gap-2">
-                  <span className="text-xs text-[var(--color-muted)] line-through">
-                    Rp {formatPrice(priceMonthly)}
-                  </span>
-                  <span className="text-xs font-semibold text-[var(--color-success)]">
-                    {saveLabel} {savePercent}%
-                  </span>
-                </div>
-                <p className="text-xs text-[var(--color-muted)] mt-1">
-                  Rp {formatPrice(displayPrice)} / {cycle === 'sixMonths' ? '6 bulan' : 'tahun'}
-                </p>
-              </>
-            ) : (
-              <>
-                <span className="text-3xl md:text-4xl font-extrabold text-[var(--color-foreground)]">
+            {cycle === 'monthly' ? (
+                <>
+                <span className="text-3xl md:text-4xl font-extrabold text-foreground">
                   Rp {formatPrice(priceMonthly)}
                 </span>
-                <span className="text-[var(--color-muted)] ml-1">{perMonthLabel}</span>
-              </>
+                  <span className="text-muted ml-1">{perMonthLabel}</span>
+                </>
+            ) : (
+                <>
+                <span className="text-3xl md:text-4xl font-extrabold text-foreground">
+                  Rp {formatPrice(monthlyEquivalent)}
+                </span>
+                  <span className="text-muted ml-1">{perMonthLabel}</span>
+                  <div className="mt-1 flex items-center gap-2">
+                  <span className="text-xs text-muted line-through">
+                    Rp {formatPrice(priceMonthly)}
+                  </span>
+                    <span className="text-xs font-semibold text-success">
+                    {saveLabel} {savePercent}%
+                  </span>
+                  </div>
+                  <p className="text-xs text-muted mt-1">
+                    Rp {formatPrice(displayPrice)} / {cycle === 'sixMonths' ? '6 bulan' : 'tahun'}
+                  </p>
+                </>
             )}
           </div>
         )}
@@ -143,19 +143,19 @@ export default function PricingCard({
       {/* Features list */}
       <ul className="space-y-3 flex-1">
         {features.map((f, i) => (
-          <li key={i} className="flex items-start gap-2.5 text-sm">
+          <li key={f.label} className="flex items-start gap-2.5 text-sm">
             <i
-              className={`fas ${f.included ? 'fa-check text-[var(--color-success)]' : 'fa-times text-[var(--color-muted)] opacity-40'} mt-0.5 text-xs`}
+              className={`fas ${f.included ? 'fa-check text-success' : 'fa-times text-muted opacity-40'} mt-0.5 text-xs`}
             />
             <span
               className={
                 f.included
-                  ? 'text-[var(--color-foreground)]'
-                  : 'text-[var(--color-muted)] opacity-60'
+                  ? 'text-foreground'
+                  : 'text-muted opacity-60'
               }
             >
               {f.label}
-              {f.value && <span className="text-[var(--color-muted)] ml-1">({f.value})</span>}
+              {f.value && <span className="text-muted ml-1">({f.value})</span>}
             </span>
           </li>
         ))}
